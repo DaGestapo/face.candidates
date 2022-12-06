@@ -1,3 +1,12 @@
+@import 'config', 'variables';
+@import 'header';
+
 body {
-    background: red;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+}
+
+ul {
+    list-style: none;
 }

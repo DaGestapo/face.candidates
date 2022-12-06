@@ -1,0 +1,70 @@
+.header {
+
+    header {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+
+        img {
+            padding-right: 1rem;
+        }
+
+        .search {
+            background: color(background-input);
+            color: color(icon-input);
+            padding: 0.8rem;
+            border-radius: 1.6rem;
+
+            i {
+                padding-right: 0.7rem;
+                font-size: 18px;
+            }
+
+            input {
+                height: 100%;
+                background: transparent;
+                border: none;
+                outline: none;
+                width: 50vw;
+                font-size: 16px;
+            }
+        }
+
+        .menu {
+            position: absolute;
+            width: 1.8rem;
+            height: 1.8rem;
+            right: 0;
+            margin: 1rem;
+            display: grid;
+            grid-template-rows: 1fr 1fr 1fr;
+            align-items: center;
+
+            &--item {
+                background: color(text);
+                width: 70%;
+                height: 3px;
+                border-radius: 3px;
+            }
+
+            &::after {
+                content: '';
+                background: color(text);
+                width: 100%;
+                height: 3px;
+                border-radius: 3px;
+            }
+
+            &::before {
+                content: '';
+                background: color(text);
+                width: 100%;
+                height: 3px;
+                border-radius: 3px;
+            }
+        }
+
+    }
+    
+
+}
