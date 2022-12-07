@@ -1,9 +1,14 @@
 .header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4rem;
 
     header {
         display: flex;
         flex-direction: row;
         align-items: center;
+        width: 100%;
 
         img {
             padding-right: 1rem;
@@ -14,6 +19,7 @@
             color: color(icon-input);
             padding: 0.8rem;
             border-radius: 1.6rem;
+            width: 75%;
 
             i {
                 padding-right: 0.7rem;
@@ -25,7 +31,7 @@
                 background: transparent;
                 border: none;
                 outline: none;
-                width: 50vw;
+                width: 85%;
                 font-size: 16px;
             }
         }
@@ -39,6 +45,7 @@
             display: grid;
             grid-template-rows: 1fr 1fr 1fr;
             align-items: center;
+            cursor: pointer;
 
             &--item {
                 background: color(text);
@@ -64,6 +71,61 @@
             }
         }
 
+    }
+
+    &--img {
+        display: flex;
+        flex-direction: column;
+        width: 90%;
+        
+    }
+
+    article {
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        gap: 1rem;
+        align-items: center;
+
+        h1 {
+            font-size: 28px;
+            font-weight: 400;
+            color: color(text);
+        }
+
+        .sub_cite {
+            background-color: color(primary);
+            padding: 0.8rem 2rem;
+            border-radius: 1rem;
+        }
+
+        p {
+            margin-top: 1rem;
+            margin-bottom: 1.5rem;
+            font-size: 20px;
+            color: color(text-disc);
+            font-size: 400;
+            line-height: 1.8rem;
+        }
+
+        button {
+            width: 80%;
+            font-size: 18px;
+            padding: 1rem 3rem;
+            border-radius: 26px;
+            border: none;
+            cursor: pointer;
+        }
+
+        .select_candidate {
+            background: color(primary);
+            color: color(text);
+        }
+
+        .base_structers {
+            background: transparent;
+            border: 1px solid color(primary);
+        }
     }
     
 
