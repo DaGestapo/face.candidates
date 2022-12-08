@@ -1,0 +1,79 @@
+.popUpMenu {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 30vh;
+    z-index: 1;
+    background: #fff;
+    padding: 1rem;
+    margin-top: 5rem;
+    gap: 2rem;
+    visibility: hidden;
+    transition: all 0.5s ease-in-out;
+    transform: translateY(-100rem);
+
+    &__search {
+        background: #fff;
+        color: color(icon-input);
+        padding: 0.8rem;
+        border-radius: 1.6rem;
+        border: 1px solid color(background-input);
+        width: 100%;
+
+        i {
+            padding-right: 0.7rem;
+            font-size: 18px;
+        }
+
+        input {
+            height: 100%;
+            background: transparent;
+            border: none;
+            outline: none;
+            width: 85%;
+            font-size: 16px;
+        }
+    }
+    ul {
+        padding-left: 1rem;
+
+        li {
+            margin-bottom: 1rem;
+            font-size: 18px;
+            font-weight: 400;
+        }
+    }
+
+    &__mergeList {
+        height: 7vh;
+
+        .show--more {
+            cursor: pointer;
+            overflow: hidden;
+            margin-left: 1rem;
+        }
+    }
+
+
+    button {
+        width: 100%;
+        font-size: 18px;
+        padding: 0.8rem;
+        border-radius: 26px;
+        border: none;
+        cursor: pointer;
+        background: color(primary);
+    }
+
+    &__regLink {
+        margin-top: -1rem;
+        font-weight: 400;
+        text-align: center;
+        font-size: 16px;
+
+        a {
+            color: color(select-text);
+        }
+    }
+}

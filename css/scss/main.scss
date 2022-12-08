@@ -1,8 +1,7 @@
 @import 'config', 'variables';
-@import 'header', 'direction', 'footer';
+@import 'header', 'popupmenu', 'direction', 'footer';
 
 body {
-    padding: 1rem;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -23,4 +22,13 @@ h1 {
 a {
     text-decoration: none;
     color: color(text);
+}
+
+section {
+    padding: 1rem;
+}
+
+.show {
+    visibility: visible;
+    transform: translateY(0rem);
 }
