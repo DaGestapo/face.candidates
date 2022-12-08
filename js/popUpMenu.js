@@ -1,24 +1,28 @@
-const menu = document.querySelector('.menu');
+const menu = document.querySelectorAll('.menu');
 const popUpMenu = document.querySelector('.popUpMenu');
-const mainIpt = document.querySelector('.search');
+const body = document.querySelector('body');
 
 let check = true;
 
 export function showPopUpMenu() {
 
-    menu.addEventListener('click', () => {
+    menu.forEach( item => {
+        item.addEventListener('click', () => {
+
+            if(check) {
+                popUpMenu.classList.add('show');
+                body.style.backgroundColor = '#8d8d8d';
+    
+                check = false;
+            } else {
+                popUpMenu.classList.remove('show');
+                body.style.backgroundColor = '#fff';
+    
+                check = true;
+            }
+        });
         
-        if(check) {
-            popUpMenu.classList.add('show');
-            mainIpt.classList.add('hide');
-
-            check = false;
-        } else {
-            popUpMenu.classList.remove('show');
-            mainIpt.classList.remove('hide');
-
-            check = true;
-        }
-       
     });
+
+       
 }
