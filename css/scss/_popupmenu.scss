@@ -92,15 +92,15 @@
     }
 
     &__mergeList {
-        height: 7vh;
-
-        .show--more {
-            cursor: pointer;
-            overflow: hidden;
-            margin-left: 1rem;
-        }
+        height: 5vh;
+        overflow: hidden;
+        transition: all 0.25s ease-in-out;
     }
 
+    .show--more {
+        cursor: pointer;
+        margin-left: 1rem;
+    }
 
     button {
         width: 100%;

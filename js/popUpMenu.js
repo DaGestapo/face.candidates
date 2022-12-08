@@ -1,3 +1,5 @@
+import {features} from './features/menuFeatures.js';
+
 const menu = document.querySelectorAll('.menu');
 const popUpMenu = document.querySelector('.popUpMenu');
 const body = document.querySelector('body');
@@ -21,8 +23,7 @@ export function showPopUpMenu() {
                 check = true;
             }
         });
-        
-    });
-
-       
+    }); 
 }
+
+features();

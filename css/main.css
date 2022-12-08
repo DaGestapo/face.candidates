@@ -200,11 +200,12 @@
   font-weight: 400;
 }
 .popUpMenu__mergeList {
-  height: 7vh;
-}
-.popUpMenu__mergeList .show--more {
-  cursor: pointer;
+  height: 5vh;
   overflow: hidden;
+  transition: all 0.25s ease-in-out;
+}
+.popUpMenu .show--more {
+  cursor: pointer;
   margin-left: 1rem;
 }
 .popUpMenu button {
