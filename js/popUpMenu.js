@@ -1,10 +1,13 @@
-import {features} from './features/menuFeatures.js';
+import {popUpLink, showLinks} from './features/menuFeatures.js';
 
 const menu = document.querySelectorAll('.menu');
 const popUpMenu = document.querySelector('.popUpMenu');
 const body = document.querySelector('body');
 
 let check = true;
+
+popUpLink();
+showLinks();
 
 export function showPopUpMenu() {
 
@@ -25,5 +28,3 @@ export function showPopUpMenu() {
         });
     }); 
 }
-
-features();

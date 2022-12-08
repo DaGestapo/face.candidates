@@ -198,6 +198,10 @@
   margin-bottom: 1rem;
   font-size: 18px;
   font-weight: 400;
+  cursor: pointer;
+}
+.popUpMenu ul .select--item {
+  color: #F50F22;
 }
 .popUpMenu__mergeList {
   height: 5vh;
