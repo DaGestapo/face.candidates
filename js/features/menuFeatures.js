@@ -6,8 +6,8 @@ const listItems = document.querySelectorAll('.head-item');
 
 let listLinks = {
     markets: ['Интернет-маркетинг', 'Контент-маркетинг', 'Первофманс-маркетинг', 'PR'],
-    backeEnd: [],
-    disign: [],
+    backeEnd: ['text', 'text'],
+    disign: ['text', 'text', 'text', 'text'],
     manage: []
 }
 
@@ -34,38 +34,52 @@ export function popUpLink() {
 
 export async function showLinks() {
     let subList; 
-    let check = true;
-    
+    let checkForMainList = 0;
+    let checkForSubList = true;
+    let savePreviousList = null;
 
     listItems.forEach( item => {
 
         item.addEventListener('click', () => {
 
-            if(check) {
+            if(checkForMainList == 0) {
                 addSelectItem(item, 'select--item');
             
                 addSubList(listLinks, item);
 
-                subList = document.querySelectorAll('.subList');
+                savePreviousList = item.id;
 
-                console.log(subList);
+                subList = document.querySelectorAll('.subList');
+                
                 subList.forEach( ite => {
                     ite.addEventListener('click', () => {
-                        addSelectItem(ite, 'select--item');   
+                        addSelectItem(ite, 'select--item');                 
                     });
                 });
 
-                check = false;
-            } else {
+                if(checkForMainList == 1) checkForMainList = -1;
+
+                checkForMainList = 1;
+                
+            } else if (checkForMainList == -1) {
+                deleteItemInsideList( savePreviousList );
+            }
+            
+            else {
                 selectItemList(listItems, 'head-item select--item', 'head-item');
-                addSelectItem(item, 'select--item')
+                addSelectItem(item, 'select--item');
+
+                addSubList(listLinks, item);
+                
+                deleteItemInsideList( savePreviousList );
+
+                checkForMainList = 0;
             }
         });
-       
-        
     });
     
 }
+
 
 function addSubList(list, item) {
     let result = '';
@@ -89,4 +103,10 @@ function selectItemList(list, select, change) {
 
 function addSelectItem(item, className) {
     item.classList.add(className);
+}
+
+function deleteItemInsideList(className) {
+    let name = '.' + className;
+
+    document.querySelector(name).innerHTML = '';
 }
