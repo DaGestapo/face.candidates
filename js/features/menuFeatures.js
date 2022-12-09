@@ -32,7 +32,7 @@ export function popUpLink() {
     });
 }
 
-export async function showLinks() {
+export function showLinks() {
     let subList; 
     let checkForMainList = 0;
     let checkForSubList = true;
