@@ -34,16 +34,15 @@ export function popUpLink() {
 
 export function showLinks() {
     let subList; 
-    let checkForMainList = 0;
-    let checkForSubList = true;
+    let checkForMainList = true;
+    let subchecker = true;
     let savePreviousList = null;
 
     listItems.forEach( item => {
 
         item.addEventListener('click', () => {
 
-            if(checkForMainList == 0) {
-                addSelectItem(item, 'select--item');
+            if(checkForMainList) {
             
                 addSubList(listLinks, item);
 
@@ -57,13 +56,21 @@ export function showLinks() {
                     });
                 });
 
-                if(checkForMainList == 1) checkForMainList = -1;
-
-                checkForMainList = 1;
+                if(!subchecker) {
+                    selectItemList(listItems, 'head-item select--item', 'head-item');
+                    deleteItemInsideList( savePreviousList );
+                    console.log(checkForMainList);
+                    subchecker = true;
                 
-            } else if (checkForMainList == -1) {
-                deleteItemInsideList( savePreviousList );
-            }
+                } 
+
+                selectItemList(listItems, 'head-item select--item', 'head-item');
+                addSelectItem(item, 'select--item');
+                checkForMainList = false;
+                subchecker = false;
+                
+                
+            } 
             
             else {
                 selectItemList(listItems, 'head-item select--item', 'head-item');
@@ -73,7 +80,7 @@ export function showLinks() {
                 
                 deleteItemInsideList( savePreviousList );
 
-                checkForMainList = 0;
+                checkForMainList = true;
             }
         });
     });
