@@ -13,28 +13,17 @@ let listLinks = {
 
 export function popUpLink() {
     let check = true;
-
-    showMore.addEventListener('click', () => {
-        
-        if(check) {
-            mergeList.style.height = 'auto';
-            showMore.innerHTML = 'Скрыть <span><i class="bi bi-caret-up"></i></span>';   
-            
-            check = false;
-        } else {
-            mergeList.style.height = '10vh';
-            showMore.innerHTML = 'Еще <span><i class="bi bi-caret-down"></i></span></span>';   
-            
-            check = true;
-        }
-
-        
-    });
+    showFullList();
+    
 }
 
+
 export function showLinks() {
-    let subList; 
+    let subLink; 
+
     let checkForMainList = true;
+    let checkForSubList = true;
+
     let savePreviousList = null;
 
     listItems.forEach( item => {
@@ -47,22 +36,38 @@ export function showLinks() {
                 savePreviousList = item.id;
             
 
-                subList = document.querySelectorAll('.subList');
-                
-                subList.forEach( ite => {
-                    ite.addEventListener('click', () => {
-                        addSelectItem(ite, 'select--item');                 
-                    });
-                });
-
-                selectItemList(listItems, 'head-item select--item', 'head-item');
-                addSelectItem(item, 'select--item');
-
-
                 if(!savePreviousList || listLinks[item.id].length == 0) {
+                    selectItemList(listItems, 'head-item select--item', 'head-item');
+                    addSelectItem(item, 'select--item');
+
                     checkForMainList = true;
                 } else {
+                    selectItemList(listItems, 'head-item select--item', 'head-item');
+                    addSelectItem(item, 'select--item');
                     addSubList(listLinks, item);
+
+                    subLink = document.querySelectorAll('.subLink');
+
+                
+                    subLink.forEach( ite => {
+                        ite.addEventListener('click', () => {
+
+                            if(checkForSubList) {
+                                selectItemList(subLink, 'subLink select--item', 'subLink');
+                                addSelectItem(ite, 'select--item'); 
+
+                                checkForSubList = false;
+                            } else  {
+                               selectItemList(subLink, 'subLink select--item', 'subLink');
+                               addSelectItem(ite, 'select--item'); 
+
+                               checkForSubList = true;
+                            }
+                           
+                        });
+                    });
+    
+
                     checkForMainList = false;
                 }
                 
@@ -70,10 +75,15 @@ export function showLinks() {
             } 
             
             else {
-                selectItemList(listItems, 'head-item select--item', 'head-item');
-                addSelectItem(item, 'select--item');
-                addSubList(listLinks, item);
-                deleteItemInsideList( savePreviousList );
+                if (savePreviousList == item.id) {
+                    selectItemList(listItems, 'head-item select--item', 'head-item');
+                    deleteItemInsideList( savePreviousList );
+                } else {
+                    selectItemList(listItems, 'head-item select--item', 'head-item');
+                    addSelectItem(item, 'select--item');
+                    addSubList(listLinks, item);
+                    deleteItemInsideList( savePreviousList );
+                }
 
                 savePreviousList = item.id;
 
@@ -91,7 +101,7 @@ function addSubList(list, item) {
     if(item.id in list) {  
 
         for(let prop of list[item.id]) {
-            result += `<li class="head-item subList"><a href="#">${prop}</a></li>`
+            result += `<li class="head-item subList"><a href="#" class="subLink">${prop}</a></li>`
         }
         document.querySelector(`.${item.id}`).innerHTML = result;
     }
@@ -115,4 +125,25 @@ function deleteItemInsideList(className) {
     let name = '.' + className;
 
     document.querySelector(name).innerHTML = '';
+}
+
+function showFullList() {
+    let check = true;
+
+    showMore.addEventListener('click', () => {
+        
+        if(check) {
+            mergeList.style.height = 'auto';
+            showMore.innerHTML = 'Скрыть <span><i class="bi bi-caret-up"></i></span>';   
+            
+            check = false;
+        } else {
+            mergeList.style.height = '6rem';
+            showMore.innerHTML = 'Еще <span><i class="bi bi-caret-down"></i></span></span>';   
+            
+            check = true;
+        }
+
+        
+    });
 }

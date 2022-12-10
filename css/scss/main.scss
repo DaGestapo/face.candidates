@@ -1,5 +1,5 @@
 @import 'config', 'variables';
-@import 'header', 'popupmenu', 'direction', 'footer';
+@import 'header', 'popupmenu', 'direction', 'footer', 'recomendation', 'add';
 
 body {
     display: flex;
@@ -8,6 +8,7 @@ body {
     font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     gap: 5rem;
     transition: all 0.5s ease-in-out;
+    color: color(text);
 }
 
 ul {
@@ -32,4 +33,9 @@ section {
 .show {
     visibility: visible;
     transform: translateY(0rem);
+}
+
+h2 {
+    font-weight: 400;
+    color: color(text);
 }

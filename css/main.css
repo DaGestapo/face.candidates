@@ -203,9 +203,9 @@
   color: #F50F22;
 }
 .popUpMenu__mergeList {
-  height: 10vh;
+  height: 6rem;
   overflow: hidden;
-  transition: all 0.25s ease-in-out;
+  transition: all 1s ease-in-out;
 }
 .popUpMenu .show--more {
   cursor: pointer;
@@ -225,6 +225,7 @@
   font-weight: 400;
   text-align: center;
   font-size: 16px;
+  margin-bottom: 5rem;
 }
 .popUpMenu__regLink a {
   color: #F50F22;
@@ -308,6 +309,68 @@
   margin-bottom: 0.7rem;
 }
 
+.recomendation {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  width: 85%;
+  color: #111827;
+}
+.recomendation__add {
+  display: grid;
+  grid-template-columns: 10% 90%;
+  gap: 1rem;
+}
+.recomendation__add h2 {
+  font-size: 20px;
+  width: 90%;
+}
+.recomendation__add p {
+  grid-column: 1/span 2;
+  line-height: 1.4rem;
+  font-size: 18px;
+}
+
+.add {
+  position: relative;
+}
+.add article {
+  background: #F1DF6F;
+  border-radius: 16px;
+  padding: 2rem 1.8rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.3rem;
+  padding-bottom: 12rem;
+}
+.add article h1 {
+  font-size: 24px;
+  font-weight: 400;
+}
+.add article h2 {
+  font-size: 18px;
+  color: #F50F22;
+  line-height: 1.5rem;
+}
+.add article button {
+  margin-top: 1rem;
+  width: 90%;
+  font-size: 18px;
+  padding: 18px 32px;
+  border-radius: 32px;
+  border: none;
+  cursor: pointer;
+}
+.add h3 {
+  position: absolute;
+  font-size: 136px;
+  font-weight: 700;
+  bottom: -1rem;
+  right: -0.2rem;
+  color: #F2F2F2;
+  letter-spacing: -0.03em;
+}
+
 body {
   display: flex;
   flex-direction: column;
@@ -315,6 +378,7 @@ body {
   font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
   gap: 5rem;
   transition: all 0.5s ease-in-out;
+  color: #111827;
 }
 
 ul {
@@ -339,4 +403,9 @@ section {
 .show {
   visibility: visible;
   transform: translateY(0rem);
+}
+
+h2 {
+  font-weight: 400;
+  color: #111827;
 }
