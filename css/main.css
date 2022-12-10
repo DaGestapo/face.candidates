@@ -203,7 +203,7 @@
   color: #F50F22;
 }
 .popUpMenu__mergeList {
-  height: 10rem;
+  height: 10vh;
   overflow: hidden;
   transition: all 0.25s ease-in-out;
 }

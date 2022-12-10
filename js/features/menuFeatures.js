@@ -17,12 +17,12 @@ export function popUpLink() {
     showMore.addEventListener('click', () => {
         
         if(check) {
-            mergeList.style.height = '10vh';
+            mergeList.style.height = 'auto';
             showMore.innerHTML = 'Скрыть <span><i class="bi bi-caret-up"></i></span>';   
             
             check = false;
         } else {
-            mergeList.style.height = '5vh';
+            mergeList.style.height = '10vh';
             showMore.innerHTML = 'Еще <span><i class="bi bi-caret-down"></i></span></span>';   
             
             check = true;
@@ -35,7 +35,6 @@ export function popUpLink() {
 export function showLinks() {
     let subList; 
     let checkForMainList = true;
-    let subchecker = true;
     let savePreviousList = null;
 
     listItems.forEach( item => {
@@ -43,10 +42,10 @@ export function showLinks() {
         item.addEventListener('click', () => {
 
             if(checkForMainList) {
-            
-                addSubList(listLinks, item);
 
+                deleteItemInsideList( savePreviousList );
                 savePreviousList = item.id;
+            
 
                 subList = document.querySelectorAll('.subList');
                 
@@ -56,18 +55,16 @@ export function showLinks() {
                     });
                 });
 
-                if(!subchecker) {
-                    selectItemList(listItems, 'head-item select--item', 'head-item');
-                    deleteItemInsideList( savePreviousList );
-                    console.log(checkForMainList);
-                    subchecker = true;
-                
-                } 
-
                 selectItemList(listItems, 'head-item select--item', 'head-item');
                 addSelectItem(item, 'select--item');
-                checkForMainList = false;
-                subchecker = false;
+
+
+                if(!savePreviousList || listLinks[item.id].length == 0) {
+                    checkForMainList = true;
+                } else {
+                    addSubList(listLinks, item);
+                    checkForMainList = false;
+                }
                 
                 
             } 
@@ -75,10 +72,10 @@ export function showLinks() {
             else {
                 selectItemList(listItems, 'head-item select--item', 'head-item');
                 addSelectItem(item, 'select--item');
-
                 addSubList(listLinks, item);
-                
                 deleteItemInsideList( savePreviousList );
+
+                savePreviousList = item.id;
 
                 checkForMainList = true;
             }
@@ -113,6 +110,8 @@ function addSelectItem(item, className) {
 }
 
 function deleteItemInsideList(className) {
+    if ( className == null || className == '') return;
+
     let name = '.' + className;
 
     document.querySelector(name).innerHTML = '';
