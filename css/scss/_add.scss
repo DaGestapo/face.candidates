@@ -1,0 +1,45 @@
+.add {
+    position: relative;
+
+    article {
+        background: color(primary);
+        border-radius: 16px;
+        padding: 2rem 1.8rem;
+        display: flex;
+        flex-direction: column;
+        gap: 1.3rem;
+        padding-bottom: 12rem;
+
+        h1 {
+            font-size: 24px;
+            font-weight: 400;
+        }
+
+        h2 {
+            font-size: 18px;
+            color: color(select-text);
+            line-height: 1.5rem;
+        }
+
+        button {
+            margin-top: 1rem;
+            width: 90%;
+            font-size: 18px;
+            padding: 18px 32px;
+            border-radius: 32px;
+            border: none;
+            cursor: pointer;
+        }
+
+    }
+
+    h3 {
+        position: absolute;
+        font-size: 136px;
+        font-weight: 700;
+        bottom: -1rem;
+        right: -0.2rem;
+        color: #F2F2F2;
+        letter-spacing: -0.03em;
+    }
+}
