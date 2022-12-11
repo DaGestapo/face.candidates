@@ -1,83 +1,102 @@
+
+.sticky__header {
+    position: fixed;
+    display: grid;
+    grid-template-columns: 10% 80% 10%;
+    align-items: center;
+    width: 100%;
+    padding: 1rem;
+    background-color: #fff;
+    z-index: 2;
+
+    img {
+        position: relative;
+    
+    }
+
+    .search {
+        background: color(background-input);
+        color: color(icon-input);
+        padding: 0.8rem;
+        border-radius: 1.6rem;
+        width: 95%;
+        opacity: 1;
+        transition: all 0.5s ease-in-out;
+        margin-left: 0.5rem;
+
+        i {
+            padding-right: 0.7rem;
+            font-size: 18px;
+        }
+
+        input {
+            height: 100%;
+            background: transparent;
+            border: none;
+            outline: none;
+            width: 80%;
+            font-size: 16px;
+        }
+    }
+
+    .hide {
+        opacity: 0;
+    }
+
+    .menu {
+        //position: relative;
+        width: 1.8rem;
+        height: 1.8rem;
+        display: grid;
+        grid-template-rows: 1fr 1fr 1fr;
+        align-items: center;
+        cursor: pointer;
+
+        &--item {
+            background: color(text);
+            width: 70%;
+            height: 3px;
+            border-radius: 3px;
+        }
+
+        &::after {
+            content: '';
+            background: color(text);
+            width: 100%;
+            height: 3px;
+            border-radius: 3px;
+        }
+
+        &::before {
+            content: '';
+            background: color(text);
+            width: 100%;
+            height: 3px;
+            border-radius: 3px;
+        }
+
+        &:hover {
+            .menu--item {
+                background: color(text-disc);
+            }
+            &::before {
+                background: color(text-disc);
+            }
+
+            &::after {
+                background: color(text-disc);
+            }
+        }
+    }
+
+}
+
 .header {
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 4rem;
-
-    header {
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        width: 100%;
-
-        img {
-            padding-right: 1rem;
-        }
-
-        .search {
-            background: color(background-input);
-            color: color(icon-input);
-            padding: 0.8rem;
-            border-radius: 1.6rem;
-            width: 75%;
-            opacity: 1;
-            transition: all 0.5s ease-in-out;
-
-            i {
-                padding-right: 0.7rem;
-                font-size: 18px;
-            }
-
-            input {
-                height: 100%;
-                background: transparent;
-                border: none;
-                outline: none;
-                width: 85%;
-                font-size: 16px;
-            }
-        }
-
-        .hide {
-            opacity: 0;
-        }
-
-        .menu {
-            position: absolute;
-            width: 1.8rem;
-            height: 1.8rem;
-            right: 0;
-            margin: 1rem;
-            display: grid;
-            grid-template-rows: 1fr 1fr 1fr;
-            align-items: center;
-            cursor: pointer;
-
-            &--item {
-                background: color(text);
-                width: 70%;
-                height: 3px;
-                border-radius: 3px;
-            }
-
-            &::after {
-                content: '';
-                background: color(text);
-                width: 100%;
-                height: 3px;
-                border-radius: 3px;
-            }
-
-            &::before {
-                content: '';
-                background: color(text);
-                width: 100%;
-                height: 3px;
-                border-radius: 3px;
-            }
-        }
-
-    }
+    margin-top: 8rem;
 
     &--img {
         display: flex;
@@ -113,18 +132,28 @@
             font-size: 18px;
             padding: 1rem 3rem;
             border-radius: 26px;
-            border: none;
+            border: 1px solid transparent;
             cursor: pointer;
         }
 
         .select_candidate {
             background: color(primary);
             color: color(text);
+
+            &:hover {
+                background: transparent;
+                border: 1px solid color(primary);
+            }
         }
 
         .base_structers {
             background: transparent;
             border: 1px solid color(primary);
+
+            &:hover {
+                background: color(primary);
+                border: 1px solid transparent;
+            }
         }
     }
     

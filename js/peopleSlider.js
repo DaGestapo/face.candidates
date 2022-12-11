@@ -1,4 +1,4 @@
-import { moveSlider } from './utiles.js';
+import { moveSlider, checkerForArrow } from './utiles.js';
 
 const  sliderButtons = [ document.querySelector('.slider__people--left'), 
 document.querySelector('.slider__people--right') ]; 
@@ -12,8 +12,11 @@ let count = 0;
 
 export function peopelSlider() {
     sliderButtons.forEach( ( item, index ) => {
+
+        checkerForArrow(sliderButtons, count, 4);
         
         item.addEventListener('click', () => {
+
             if( index == 1 ) {
                 count++;
 
@@ -27,6 +30,8 @@ export function peopelSlider() {
                 if(count < 0) count = 0;
                 moveSlider(slide, count, 100);
             }
+
+            checkerForArrow(sliderButtons, count, 2);
         });
     });
 }

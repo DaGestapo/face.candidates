@@ -5,75 +5,88 @@
   font-weight: 400;
 }
 
-.header {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 4rem;
-}
-.header header {
-  display: flex;
-  flex-direction: row;
+.sticky__header {
+  position: fixed;
+  display: grid;
+  grid-template-columns: 10% 80% 10%;
   align-items: center;
   width: 100%;
+  padding: 1rem;
+  background-color: #fff;
+  z-index: 2;
 }
-.header header img {
-  padding-right: 1rem;
+.sticky__header img {
+  position: relative;
 }
-.header header .search {
+.sticky__header .search {
   background: #E5E7EB;
   color: #c2c2c2;
   padding: 0.8rem;
   border-radius: 1.6rem;
-  width: 75%;
+  width: 95%;
   opacity: 1;
   transition: all 0.5s ease-in-out;
+  margin-left: 0.5rem;
 }
-.header header .search i {
+.sticky__header .search i {
   padding-right: 0.7rem;
   font-size: 18px;
 }
-.header header .search input {
+.sticky__header .search input {
   height: 100%;
   background: transparent;
   border: none;
   outline: none;
-  width: 85%;
+  width: 80%;
   font-size: 16px;
 }
-.header header .hide {
+.sticky__header .hide {
   opacity: 0;
 }
-.header header .menu {
-  position: absolute;
+.sticky__header .menu {
   width: 1.8rem;
   height: 1.8rem;
-  right: 0;
-  margin: 1rem;
   display: grid;
   grid-template-rows: 1fr 1fr 1fr;
   align-items: center;
   cursor: pointer;
 }
-.header header .menu--item {
+.sticky__header .menu--item {
   background: #111827;
   width: 70%;
   height: 3px;
   border-radius: 3px;
 }
-.header header .menu::after {
+.sticky__header .menu::after {
   content: "";
   background: #111827;
   width: 100%;
   height: 3px;
   border-radius: 3px;
 }
-.header header .menu::before {
+.sticky__header .menu::before {
   content: "";
   background: #111827;
   width: 100%;
   height: 3px;
   border-radius: 3px;
+}
+.sticky__header .menu:hover .menu--item {
+  background: #626262;
+}
+.sticky__header .menu:hover::before {
+  background: #626262;
+}
+.sticky__header .menu:hover::after {
+  background: #626262;
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4rem;
+  margin-top: 8rem;
 }
 .header--img {
   display: flex;
@@ -105,23 +118,32 @@
   font-size: 18px;
   padding: 1rem 3rem;
   border-radius: 26px;
-  border: none;
+  border: 1px solid transparent;
   cursor: pointer;
 }
 .header article .select_candidate {
   background: #F1DF6F;
   color: #111827;
 }
+.header article .select_candidate:hover {
+  background: transparent;
+  border: 1px solid #F1DF6F;
+}
 .header article .base_structers {
   background: transparent;
   border: 1px solid #F1DF6F;
 }
+.header article .base_structers:hover {
+  background: #F1DF6F;
+  border: 1px solid transparent;
+}
 
 .popUpMenu {
-  position: absolute;
+  position: fixed;
   display: flex;
   flex-direction: column;
   width: 100%;
+  z-index: 2;
   z-index: 1;
   background: #fff;
   padding: 1rem;
@@ -156,7 +178,7 @@
 }
 .popUpMenu header .menu::after {
   content: "";
-  background: #626262;
+  background: #111827;
   width: 100%;
   height: 3px;
   border-radius: 3px;
@@ -165,11 +187,17 @@
 }
 .popUpMenu header .menu::before {
   content: "";
-  background: #626262;
+  background: #111827;
   width: 100%;
   height: 3px;
   border-radius: 3px;
   transform: rotate(-45deg) translateY(12px) translateX(-12px);
+}
+.popUpMenu header .menu:hover::before {
+  background: #626262;
+}
+.popUpMenu header .menu:hover::after {
+  background: #626262;
 }
 .popUpMenu__search {
   background: #fff;
@@ -248,6 +276,9 @@
   color: #c2c2c2;
   cursor: pointer;
 }
+.direction__logo i:hover {
+  color: #626262;
+}
 .direction__slideMenu {
   position: relative;
   height: 11rem;
@@ -295,6 +326,9 @@
 }
 .footer ul li {
   margin-bottom: 1rem;
+}
+.footer ul li a:hover {
+  color: #626262;
 }
 .footer ul .head {
   font-size: 24px;
@@ -348,6 +382,7 @@
   flex-direction: column;
   gap: 1.3rem;
   padding-bottom: 12rem;
+  overflow: hidden;
 }
 .recomendation__article article h1 {
   font-size: 24px;
@@ -395,6 +430,9 @@
   font-size: 2rem;
   color: #c2c2c2;
   cursor: pointer;
+}
+.people__slide--buttons i:hover {
+  color: #626262;
 }
 .people__slider {
   position: relative;
@@ -445,10 +483,15 @@
   width: 80%;
   margin-top: 1rem;
   background: #F1DF6F;
-  border: none;
+  border: 1px solid transparent;
   font-size: 16px;
   padding: 1rem 2rem;
   border-radius: 2rem;
+  cursor: pointer;
+}
+.people__slider article button:hover {
+  background: transparent;
+  border: 1px solid #F1DF6F;
 }
 
 .follow {
@@ -482,8 +525,13 @@
 .follow__section button {
   background: #F1DF6F;
   padding: 1rem 2rem;
-  border: none;
+  border: 1px solid transparent;
   border-radius: 2rem;
+  cursor: pointer;
+}
+.follow__section button:hover {
+  background: transparent;
+  border: 1px solid #F1DF6F;
 }
 .follow__section p {
   margin-top: 1rem;
