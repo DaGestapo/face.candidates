@@ -1,7 +1,8 @@
+import { moveSlider } from './utiles.js';
+
 let slideRow = document.querySelectorAll('.row');
-
-let arrowsForSlider = [document.querySelector('.bi-arrow-left'), document.querySelector('.bi-arrow-right')];
-
+let arrowsForSlider = [document.querySelector('.slider__links--left'), 
+document.querySelector('.slider__links--right')];
 let counter = 0;
 
 
@@ -16,14 +17,16 @@ export function slider() {
         if(index == 1) {
             slide.addEventListener('click', () => {
                 counter++;
-                if(counter >= 2.5) counter = 2.5;
-                moveSlider(counter);
+                if( counter > 4.4 ) counter = 4.4;
+
+                if( counter == 4 ) counter = 4.4;
+                moveSlider(slideRow, counter, 25);
             });
         } else {
             slide.addEventListener('click', () => {
                 counter--;
                 if(counter <= 0) counter = 0;
-                moveSlider(counter);
+                moveSlider(slideRow, counter, 25);
             });
         }
        
@@ -31,8 +34,3 @@ export function slider() {
 
 }
 
-function moveSlider(count) {
-    slideRow.forEach( slide => {
-        slide.style.transform = `translateX( -${count * 40}%)`;
-    }); 
-}
