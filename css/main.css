@@ -371,7 +371,6 @@
   font-size: 18px;
 }
 .recomendation__article {
-  position: relative;
   padding: 0;
   margin: 1rem;
   overflow: hidden;
@@ -571,6 +570,7 @@ a {
 }
 
 section {
+  position: relative;
   padding: 1rem;
 }
 
