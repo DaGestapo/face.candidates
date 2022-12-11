@@ -1,6 +1,6 @@
 @import 'config', 'variables';
-@import 'header', 'popupmenu', 'direction', 'footer', 'recomendation', 'add';
-@import 'people';
+@import 'header', 'popupmenu', 'direction', 'footer', 'recomendation';
+@import 'people', 'follow';
 
 body {
     display: flex;
