@@ -253,6 +253,7 @@
   display: grid;
   grid-template-rows: 1fr 1fr;
   gap: 1rem;
+  overflow: hidden;
 }
 .direction__slideMenu .row {
   position: absolute;
