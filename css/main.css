@@ -244,9 +244,13 @@
   font-size: 18px;
   padding: 0.8rem;
   border-radius: 26px;
-  border: none;
+  border: 1px solid transparent;
   cursor: pointer;
   background: #F1DF6F;
+}
+.popUpMenu button:hover {
+  border: 1px solid #F1DF6F;
+  background: #fff;
 }
 .popUpMenu__regLink {
   margin-top: -1rem;
@@ -405,10 +409,10 @@
 }
 .recomendation__article h3 {
   position: absolute;
-  font-size: 116px;
+  font-size: 106px;
   font-weight: 700;
   bottom: -1.8rem;
-  right: -0.7rem;
+  right: -2rem;
   color: #F2F2F2;
   width: 100%;
 }

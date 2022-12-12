@@ -1,25 +1,33 @@
 const buttonFollow = document.querySelector('.follow__section--btn');
 const body = document.querySelector('body');
 
+let check = true;
 
 export async function popUpFollow() {
     let div = createPopUpElement();
     let closeBtn;
 
     buttonFollow.addEventListener('click', () => {
-        div = createPopUpElement();
+        
+        if(check) {
+            check = false;
 
-        body.append(div);
-        body.style.backgroundColor = '#8d8d8d';
-        closeBtn = document.querySelector('.popUp__Follow--btn');
+            div = createPopUpElement();
 
+            body.append(div);
+            body.style.backgroundColor = '#8d8d8d';
+            closeBtn = document.querySelector('.popUp__Follow--btn');
+    
+    
+            closeBtn.addEventListener('click', () => {
+                
+                div.remove();
+                body.style.backgroundColor = '#fff';
 
-        closeBtn.addEventListener('click', () => {
-            
-            div.remove();
-            body.style.backgroundColor = '#fff';
-
-        });
+                check = true;
+    
+            });
+        }
     });
 
 }

@@ -124,9 +124,14 @@
         font-size: 18px;
         padding: 0.8rem;
         border-radius: 26px;
-        border: none;
+        border: 1px solid transparent;
         cursor: pointer;
         background: color(primary);
+
+        &:hover {
+            border: 1px solid color(primary);
+            background: #fff;
+        }
     }
 
     &__regLink {
