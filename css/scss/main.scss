@@ -1,6 +1,6 @@
 @import 'config', 'variables';
 @import 'header', 'popupmenu', 'direction', 'footer', 'recomendation';
-@import 'people', 'follow';
+@import 'people', 'follow', 'popUpElements';
 
 body {
     display: flex;
@@ -10,6 +10,7 @@ body {
     gap: 5rem;
     transition: all 0.5s ease-in-out;
     color: color(text);
+   // background: gray;
 }
 
 ul {

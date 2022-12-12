@@ -5,29 +5,41 @@ const popUpMenu = document.querySelector('.popUpMenu');
 const body = document.querySelector('body');
 const header = document.querySelector('.sticky__header');
 
-let check = true;
-
 popUpLink();
 showLinks();
 
-export function showPopUpMenu() {
+export function showPopUpMenu(bool) {
 
-    menu.forEach( item => {
-        item.addEventListener('click', () => {
+    let check = bool;
+    let newCheck = true;
+    console.log(check);
 
-            if(check) {
-                popUpMenu.classList.add('show');
-                body.style.backgroundColor = '#8d8d8d';
+    if(check) {
+        menu.forEach( (item) => {
 
-                header.style.visibility = 'hidden';
-                check = false;
-            } else {
-                popUpMenu.classList.remove('show');
-                body.style.backgroundColor = '#fff';
-    
-                header.style.visibility = 'visible';
-                check = true;
-            }
-        });
-    }); 
+            item.addEventListener('click', () => {
+                if(newCheck) {
+                    popUpMenu.classList.add('show');
+                    body.style.backgroundColor = '#8d8d8d';
+        
+                    header.style.visibility = 'hidden';
+                    newCheck = false;
+                } else {
+                    console.log(check);
+                    popUpMenu.classList.remove('show');
+                    body.style.backgroundColor = '#fff';
+
+                    header.style.visibility = 'visible';
+                    newCheck = true;
+                }
+            });
+        })
+    } else {
+        popUpMenu.classList.remove('show');
+        body.style.backgroundColor = '#fff';
+
+        header.style.visibility = 'visible';
+        check = true;
+    }
+
 }
