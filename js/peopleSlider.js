@@ -1,7 +1,9 @@
 import { moveSlider, checkerForArrow } from './utiles.js';
+import { selectCandidate, deleteSelectColorName } from './features/peopleSliderFeatures.js';
 
 const  sliderButtons = [ document.querySelector('.slider__people--left'), 
 document.querySelector('.slider__people--right') ]; 
+
 const slide = document.querySelectorAll('.people__slider--item');
 
 slide.forEach( (item, index) => {
@@ -36,3 +38,6 @@ export function peopelSlider() {
     });
 }
 
+selectCandidate();
+
+deleteSelectColorName(sliderButtons);
