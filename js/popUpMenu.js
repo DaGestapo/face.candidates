@@ -1,9 +1,8 @@
 import {popUpLink, showLinks} from './features/menuFeatures.js';
 
-const menu = document.querySelectorAll('.menu');
+const menu = document.querySelectorAll('.sticky__header--menu');
 const popUpMenu = document.querySelector('.popUpMenu');
 const body = document.querySelector('body');
-const header = document.querySelector('.sticky__header');
 
 popUpLink();
 showLinks();
@@ -11,35 +10,35 @@ showLinks();
 export function showPopUpMenu(bool) {
 
     let check = bool;
-    let newCheck = true;
     console.log(check);
 
-    if(check) {
-        menu.forEach( (item) => {
+    menu.forEach( (item) => {
 
-            item.addEventListener('click', () => {
-                if(newCheck) {
-                    popUpMenu.classList.add('show');
-                    body.style.backgroundColor = '#8d8d8d';
+        item.addEventListener('click', () => {
+            if(check) {
+                popUpMenu.classList.add('show');
+                body.style.backgroundColor = '#8d8d8d';
+    
+                hideHeader(check);
+                check = false;
+            } else {
+                popUpMenu.classList.remove('show');
+                body.style.backgroundColor = '#fff';
         
-                    header.style.visibility = 'hidden';
-                    newCheck = false;
-                } else {
-                    console.log(check);
-                    popUpMenu.classList.remove('show');
-                    body.style.backgroundColor = '#fff';
+                hideHeader(check);
+                check = true;
+            }
+        });
+    });
 
-                    header.style.visibility = 'visible';
-                    newCheck = true;
-                }
-            });
-        })
+}
+
+export function hideHeader(bool) {
+    const header = document.querySelector('.sticky__header');
+
+    if(bool) {
+        header.style.visibility = 'hidden';
     } else {
-        popUpMenu.classList.remove('show');
-        body.style.backgroundColor = '#fff';
-
         header.style.visibility = 'visible';
-        check = true;
     }
-
 }

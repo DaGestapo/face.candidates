@@ -14,7 +14,7 @@
     
     }
 
-    .search {
+    &--search {
         background: color(background-input);
         color: color(icon-input);
         padding: 0.8rem;
@@ -42,7 +42,7 @@
         opacity: 0;
     }
 
-    .menu {
+    &--menu {
         //position: relative;
         width: 1.8rem;
         height: 1.8rem;

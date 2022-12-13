@@ -1,14 +1,15 @@
-import {showPopUpMenu} from './popUpMenu.js';
+import { hideHeader } from './popUpMenu.js';
 
 const body = document.querySelector('body');
 
 export let elementsFollow = {
     openBtn: document.querySelector('.follow__section--btn'),
-    classCloseBtn: 'popUp__Follow--btn',
+    classCloseBtn: 'popUp__Follow--btn', 
+    divName: 'popUp__Follow',
     
     createElm() {
         let div = document.createElement('div');
-        div.setAttribute('class', 'popUp__Follow');
+        div.setAttribute('class', elementsFollow.divName);
 
         let h1 = document.createElement('h1');
         let h2 = document.createElement('h2');
@@ -33,12 +34,20 @@ export let elementsFollow = {
 
 export let elemetsEnters = {
     openBtn: document.querySelector('.popUpMenu__open--btn'),
+    classCloseBtn: 'enter__exit__block',
     enterBtn: 'enter__enter--btn',
     regBtn: 'enter__reg--btn',
+    divName: 'enter',
 
     createElm() {
         let div = document.createElement('div');
-        div.setAttribute('class', 'enter');
+        div.setAttribute('class', elemetsEnters.divName);
+
+        let exitBtn = document.createElement('div');
+        exitBtn.className = 'enter__exit';
+
+        exitBtn.innerHTML = `<div class="enter__exit"><div class="enter__exit__block">
+        <div class="enter__exit__block--elm"></div></div></div>`;
 
         let h1 = document.createElement('h1');
         h1.innerHTML = `ЛИЦА <span><img src="./img/logo.png" alt=""></span> Кандидаты`;
@@ -68,38 +77,37 @@ export let elemetsEnters = {
         img.setAttribute('src', './img/logo.png');
 
         h2.append(textH2);
-        div.append(h1, h2, emailInpt, passwordInpt, tip, enterBtn, registrationBtn );
+        div.append(exitBtn, h1, h2, emailInpt, passwordInpt, tip, enterBtn, registrationBtn );
 
         return div;
     }
 }
 
-export function popUps(button, func, ...args) {
+export function popUps(button, func, divName, NameCloseBtn) {
  let div;
  let closeBtn;
  let check = true;
 
  button.addEventListener('click', function () {
 
-    showPopUpMenu(false);
-
     if(check) {
+
         check = false;
 
-       div = func();
-
-        body.append(func());
+        div = func();
+        body.append( func() );
+        
         body.style.backgroundColor = '#8d8d8d';
-       closeBtn = document.querySelector(args[0]);
+        closeBtn = document.querySelector(NameCloseBtn);
+        console.log(NameCloseBtn);
 
         closeBtn.addEventListener('click', () => {
 
-            div = document.querySelector('.popUp__Follow');
+            div = document.querySelector(divName);
             div.remove();
             body.style.backgroundColor = '#fff';
 
             check = true;
-
         });
     }
  });
