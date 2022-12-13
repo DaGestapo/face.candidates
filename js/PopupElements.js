@@ -1,6 +1,6 @@
-import { hideHeader } from './popUpMenu.js';
 
 const body = document.querySelector('body');
+const popUpMenu = document.querySelector('.popUpMenu');
 
 export let elementsFollow = {
     openBtn: document.querySelector('.follow__section--btn'),
@@ -83,32 +83,34 @@ export let elemetsEnters = {
     }
 }
 
-export function popUps(button, func, divName, NameCloseBtn) {
- let div;
- let closeBtn;
- let check = true;
+export function popUps(button, func, divName, backg, NameCloseBtn) {
+    let div;
+    let closeBtn;
+    let check = true;
 
- button.addEventListener('click', function () {
+    let back = document.querySelector(backg);
 
-    if(check) {
+    button.addEventListener('click', function () {
 
-        check = false;
+        if(check) {
+            //hideHeader(check);
+            check = false;
 
-        div = func();
-        body.append( func() );
-        
-        body.style.backgroundColor = '#8d8d8d';
-        closeBtn = document.querySelector(NameCloseBtn);
-        console.log(NameCloseBtn);
+            div = func();
+            body.append( func() );
+            
+            back.style.backgroundColor = '#8d8d8d';
+            closeBtn = document.querySelector(NameCloseBtn);
+            console.log(NameCloseBtn);
 
-        closeBtn.addEventListener('click', () => {
+            closeBtn.addEventListener('click', () => {
 
-            div = document.querySelector(divName);
-            div.remove();
-            body.style.backgroundColor = '#fff';
+                div = document.querySelector(divName);
+                div.remove();
+                back.style.backgroundColor = '#fff';
 
-            check = true;
-        });
-    }
- });
+                check = true;
+            });
+        }
+    });
 } 

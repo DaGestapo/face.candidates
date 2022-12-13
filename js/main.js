@@ -9,6 +9,6 @@ showPopUpMenu(true);
 
 peopelSlider();
 
-popUps(elementsFollow.openBtn, elementsFollow.createElm, '.popUp__Follow','.popUp__Follow--btn');
-popUps(elemetsEnters.openBtn, elemetsEnters.createElm, '.enter','.enter__exit__block');
+popUps(elementsFollow.openBtn, elementsFollow.createElm, '.popUp__Follow', 'body','.popUp__Follow--btn');
+popUps(elemetsEnters.openBtn, elemetsEnters.createElm, '.enter', '.popUpMenu','.enter__exit__block');
 
