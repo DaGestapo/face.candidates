@@ -12,24 +12,27 @@ export function showPopUpMenu(bool) {
     let check = bool;
     console.log(check);
 
-    menu.forEach( (item) => {
 
-        item.addEventListener('click', () => {
-            if(check) {
-                popUpMenu.classList.add('show');
-                body.style.backgroundColor = '#8d8d8d';
+    if(check) {
+        popUpMenu.classList.add('show');
+        body.style.backgroundColor = '#8d8d8d';
+
+        hideHeader(check);
+        check = false;
+
+        return check;
+    } else {
+        popUpMenu.classList.remove('show');
+        body.style.backgroundColor = '#fff';
+
+        hideHeader(check);
+
+        check = true;
+
+        return check;
+    }
     
-                hideHeader(check);
-                check = false;
-            } else {
-                popUpMenu.classList.remove('show');
-                body.style.backgroundColor = '#fff';
-        
-                hideHeader(check);
-                check = true;
-            }
-        });
-    });
+
 
 }
 

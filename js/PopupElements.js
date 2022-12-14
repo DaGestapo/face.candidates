@@ -63,6 +63,7 @@ export let elemetsEnters = {
         passwordInpt.setAttribute('placeholder', 'Пароль');
 
         let tip = document.createElement('h5');
+        tip.className = 'enter__forgot';
         tip.innerHTML = 'Забыли пароль';
 
         let enterBtn = document.createElement('button');
@@ -83,34 +84,26 @@ export let elemetsEnters = {
     }
 }
 
-export function popUps(button, func, divName, backg, NameCloseBtn) {
+export async function popUps(func, divName, backg, NameCloseBtn) {
     let div;
     let closeBtn;
-    let check = true;
 
     let back = document.querySelector(backg);
 
-    button.addEventListener('click', function () {
+    div = func();
+    body.append( func() );
+    
+    back.style.backgroundColor = '#8d8d8d';
 
-        if(check) {
-            //hideHeader(check);
-            check = false;
-
-            div = func();
-            body.append( func() );
-            
-            back.style.backgroundColor = '#8d8d8d';
-            closeBtn = document.querySelector(NameCloseBtn);
-            console.log(NameCloseBtn);
-
-            closeBtn.addEventListener('click', () => {
-
-                div = document.querySelector(divName);
-                div.remove();
-                back.style.backgroundColor = '#fff';
-
-                check = true;
-            });
-        }
-    });
+    closeBtn = document.querySelector(NameCloseBtn);
+    closeBtn.addEventListener('click', () => {
+        closePopup(div, back, divName);  
+    }); 
 } 
+
+
+function closePopup(div, body, divName) {
+    div = document.querySelector(divName);
+    div.remove();
+    body.style.backgroundColor = '#fff'; 
+}
