@@ -4,7 +4,7 @@ import * as utiles from './utiles.js';
 import {slider} from './slider.js';
 import {showPopUpMenu} from './popUpMenu.js';
 import { peopelSlider } from './peopleSlider.js';
-import { popUps, elementsFollow, elemetsEnters, elementsForgotPassword } from './PopupElements.js';
+import { popUps, elementsFollow, elemetsEnters, elementsForgotPassword, elementsThanks } from './PopupElements.js';
 
 
 const menu = document.querySelectorAll('.sticky__header--menu');
@@ -28,13 +28,21 @@ const menu = document.querySelectorAll('.sticky__header--menu');
 
     elemetsEnters.openBtn.addEventListener( 'click', () => {
         openRegMenu().then( () => {
-            let forgotPasswordBtn = document.querySelector('.enter__forgot');
+            let openBtn = document.querySelector('.enter__forgot');
 
-            forgotPasswordBtn.addEventListener('click', () => {
+            openBtn.addEventListener('click', () => {
 
                 let prevElm = '.' + elemetsEnters.divName;
                 utiles.hidePrevPopUp(prevElm);
-                popUps(elementsForgotPassword.createElm, '.forgot__password', 'body', '.forgot__password--back', prevElm);
+                popUps(elementsForgotPassword.createElm, '.forgot__password', null, '.forgot__password--back', prevElm);
+            
+                openBtn = document.querySelector('.forgot__password--change');
+                openBtn.addEventListener('click', () => {
+                    prevElm = '.' + elementsForgotPassword.divName;
+
+                    utiles.hidePrevPopUp(prevElm);
+                    popUps(elementsThanks.createElm, '.recovery__password', null, '.recovery__password--btn', prevElm);
+                });
             });
         });
     });

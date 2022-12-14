@@ -1,6 +1,5 @@
 import * as utiles from './utiles.js';
 
-
 const body = document.querySelector('body');
 
 export let elementsFollow = {
@@ -12,7 +11,7 @@ export let elementsFollow = {
         let div = document.createElement('div');
         div.setAttribute('class', elementsFollow.divName);
 
-        let h1 = document.createElement('h1');
+        let h1 = createLogoH1();
         let h2 = document.createElement('h2');
 
         let btn = document.createElement('button');
@@ -23,7 +22,6 @@ export let elementsFollow = {
 
         btn.innerHTML = `Закрыть`;
 
-        h1.innerHTML = createLogoH1();
         let textH2 = document.createTextNode('Спасибо! Вы подписались на еженедельные обновления базы проверенных кандидатов.');
 
         h2.append(textH2);
@@ -50,8 +48,7 @@ export let elemetsEnters = {
         exitBtn.innerHTML = `<div class="enter__exit"><div class="enter__exit__block">
         <div class="enter__exit__block--elm"></div></div></div>`;
 
-        let h1 = document.createElement('h1');
-        h1.innerHTML = createLogoH1();
+        let h1 = createLogoH1();
         
         let h2 = document.createElement('h2');
         let textH2 = document.createTextNode('Получить доступ к базе проверенных кандидатов');
@@ -94,8 +91,7 @@ export let elementsForgotPassword = {
         let div = document.createElement('div');
         div.className = 'forgot__password';
 
-        let h1 = document.createElement('h1');
-        h1.innerHTML = createLogoH1();
+        let h1 = createLogoH1();
 
         let h2 = document.createElement('h2');
         h2.innerHTML = `Забыли пароль?`;
@@ -119,14 +115,42 @@ export let elementsForgotPassword = {
 
 }
 
+export let elementsThanks = {
+    closeBtn: 'recovery__password--btn',
+    divName: 'recovery__password',
+
+    createElm() {
+        let div = document.createElement('div');
+        div.className = elementsThanks.divName;
+
+        let h1 = createLogoH1();
+
+        let h2 = document.createElement('h2');
+        h2.innerHTML = `На ваш email выслана ссылка для восстановления пароля.`;
+
+        let button = document.createElement('button');
+        button.innerHTML = 'Спасибо';
+        button.className = elementsThanks.closeBtn;
+
+        div.append(h1, h2, button);
+
+        return div;
+    }
+}
+
+
 export async function popUps(func, divName, backg, NameCloseBtn, ...args) {
     let closeBtn;
+    let back;
 
-    let back = document.querySelector(backg);
+    if( backg != null ) {
+        back = document.querySelector(backg);
+        back.style.backgroundColor = '#8d8d8d';
+    } else {
+        back = null;
+    }
 
     body.append( func() );
-    
-    back.style.backgroundColor = '#8d8d8d';
 
     closeBtn = document.querySelector(NameCloseBtn);
     closeBtn.addEventListener('click', () => {
@@ -142,9 +166,17 @@ export async function popUps(func, divName, backg, NameCloseBtn, ...args) {
 function closePopup(body, divName) {
     let div = document.querySelector(divName);
     div.remove();
-    body.style.backgroundColor = '#fff'; 
+
+    if( body != null ) {
+        body.style.backgroundColor = '#fff'; 
+    } else {
+        return;
+    }
 }
 
 function createLogoH1() {
-    return `ЛИЦА <span><img src="./img/logo.png" alt=""></span> Кандидаты`;
+    let h1 = document.createElement('h1');
+    h1.innerHTML = `ЛИЦА <span><img src="./img/logo.png" alt=""></span> Кандидаты`;
+
+    return h1;
 }
