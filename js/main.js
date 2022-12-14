@@ -1,14 +1,15 @@
-//import { test } from './utiles.js';
+import * as utiles from './utiles.js';
+//hidePrevPopUp showPrevPopUp
 
 import {slider} from './slider.js';
 import {showPopUpMenu} from './popUpMenu.js';
 import { peopelSlider } from './peopleSlider.js';
-import { popUps, elementsFollow, elemetsEnters } from './PopupElements.js';
-import { forgotPasswordPopUp } from './features/popUpElementsFeatures.js';
+import { popUps, elementsFollow, elemetsEnters, elementsForgotPassword } from './PopupElements.js';
+
 
 const menu = document.querySelectorAll('.sticky__header--menu');
 
-( async function() {
+(() => {
     slider();
     peopelSlider();
 
@@ -26,13 +27,22 @@ const menu = document.querySelectorAll('.sticky__header--menu');
     });
 
     elemetsEnters.openBtn.addEventListener( 'click', () => {
-        openRegMenu().then( forgotPasswordPopUp );
+        openRegMenu().then( () => {
+            let forgotPasswordBtn = document.querySelector('.enter__forgot');
+
+            forgotPasswordBtn.addEventListener('click', () => {
+
+                let prevElm = '.' + elemetsEnters.divName;
+                utiles.hidePrevPopUp(prevElm);
+                popUps(elementsForgotPassword.createElm, '.forgot__password', 'body', '.forgot__password--back', prevElm);
+            });
+        });
     });
-   
 
 
 
 })();
+
 
 
 async function openRegMenu() {

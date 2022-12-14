@@ -1,4 +1,4 @@
-import { moveSlider, checkerForArrow } from './utiles.js';
+import * as utiles from './utiles.js';
 
 let slideRow = document.querySelectorAll('.row');
 let arrowsForSlider = [document.querySelector('.slider__links--left'), 
@@ -12,7 +12,7 @@ export function slider() {
         slide.style.left = `${index * 0}%`;
     });
 
-    checkerForArrow(arrowsForSlider, counter, 3);
+    utiles.checkerForArrow(arrowsForSlider, counter, 3);
 
     arrowsForSlider.forEach( (slide, index) => {
         slide.addEventListener('click', () => {
@@ -22,15 +22,15 @@ export function slider() {
                 if( counter > 4.4 ) counter = 4.4;
 
                 if( counter == 4 ) counter = 4.4;
-                moveSlider(slideRow, counter, 25);
+                utiles.moveSlider(slideRow, counter, 25);
 
             } else {
                 counter--;
                 if(counter <= 0) counter = 0;
-                moveSlider(slideRow, counter, 25);
+                utiles.moveSlider(slideRow, counter, 25);
             }
 
-            checkerForArrow(arrowsForSlider, counter, 4);
+            utiles.checkerForArrow(arrowsForSlider, counter, 4);
        
     })
 

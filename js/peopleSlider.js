@@ -1,4 +1,4 @@
-import { moveSlider, checkerForArrow } from './utiles.js';
+import * as utiles from './utiles.js';
 import { selectCandidate, deleteSelectColorName } from './features/peopleSliderFeatures.js';
 
 const  sliderButtons = [ document.querySelector('.slider__people--left'), 
@@ -15,7 +15,7 @@ let count = 0;
 export function peopelSlider() {
     sliderButtons.forEach( ( item, index ) => {
 
-        checkerForArrow(sliderButtons, count, 4);
+        utiles.checkerForArrow(sliderButtons, count, 4);
         
         item.addEventListener('click', () => {
 
@@ -23,17 +23,17 @@ export function peopelSlider() {
                 count++;
 
                 if(count > 2) count = 2;
-                moveSlider(slide, count, 100);
+                utiles.moveSlider(slide, count, 100);
 
 
             } else {
                 count--;
 
                 if(count < 0) count = 0;
-                moveSlider(slide, count, 100);
+                utiles.moveSlider(slide, count, 100);
             }
 
-            checkerForArrow(sliderButtons, count, 2);
+            utiles.checkerForArrow(sliderButtons, count, 2);
         });
     });
 }

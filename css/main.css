@@ -734,6 +734,55 @@
   background: #F1DF6F;
 }
 
+.forgot__password {
+  width: 90%;
+  position: fixed;
+  margin: 1rem;
+  padding: 3rem 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+  background: #fff;
+  border-radius: 2rem;
+  z-index: 2;
+  transform: translateY(8vh);
+}
+.forgot__password h1 {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  gap: 0.3rem;
+  font-size: 30px;
+  margin-top: -1rem;
+}
+.forgot__password h2 {
+  text-align: center;
+  font-size: 24px;
+}
+.forgot__password input {
+  border: 1px solid #c2c2c2;
+  border-radius: 2rem;
+  padding: 1rem 2rem;
+  width: 90%;
+  outline: none;
+}
+.forgot__password button {
+  width: 85%;
+  padding: 1rem;
+  border-radius: 2rem;
+  border: 1px solid transparent;
+  cursor: pointer;
+  font-size: 18px;
+}
+.forgot__password--change {
+  background: #F1DF6F;
+}
+.forgot__password--change:hover {
+  border: 1px solid #F1DF6F;
+  background: #fff;
+}
+
 body {
   display: flex;
   flex-direction: column;

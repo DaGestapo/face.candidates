@@ -21,3 +21,13 @@ export function checkerForArrow(arr, count, upperBorder) {
         arr[1].style.visibility = "visible";
     }
 }
+
+export function hidePrevPopUp(divName) {
+    let div = document.querySelector(divName);
+    div.style.visibility = 'hidden';
+}
+
+export function showPrevPopUp(divName) {
+    let div = document.querySelector(divName);
+    div.style.visibility = 'visible';
+}
