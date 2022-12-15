@@ -1,6 +1,3 @@
-
-
-
 export function moveSlider(arr, count, prec) {
     arr.forEach( slide => {
         slide.style.transform = `translateX( -${count * prec}%)`;
@@ -30,4 +27,15 @@ export function hidePrevPopUp(divName) {
 export function showPrevPopUp(divName) {
     let div = document.querySelector(divName);
     div.style.visibility = 'visible';
+}
+
+export function delDiv(className, ...args) {
+    if(args != null) {
+        for(let i of args) {
+            document.querySelector(i).remove();
+        }
+    } 
+    if(className != null) {
+        document.querySelector(className).remove();
+    }
 }

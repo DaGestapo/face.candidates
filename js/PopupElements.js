@@ -139,7 +139,7 @@ export let elementsThanks = {
 }
 
 
-export async function popUps(func, divName, backg, NameCloseBtn, ...args) {
+export async function popUps(func, divName, backg, NameCloseBtn, arr, ...args) {
     let closeBtn;
     let back;
 
@@ -152,14 +152,24 @@ export async function popUps(func, divName, backg, NameCloseBtn, ...args) {
 
     body.append( func() );
 
-    closeBtn = document.querySelector(NameCloseBtn);
-    closeBtn.addEventListener('click', () => {
-        closePopup(back, divName);  
+    if(NameCloseBtn != null) {
 
-        if(args.length != 0) {
-            utiles.showPrevPopUp(args[0]);
-        }
-    }); 
+        closeBtn = document.querySelector(NameCloseBtn);
+
+        closeBtn.addEventListener('click', () => {
+            closePopup(back, divName);
+
+            utiles.showPrevPopUp(arr[0]);
+        });
+    
+    } else {
+        closeBtn = document.querySelector('.recovery__password--btn');
+        closeBtn.addEventListener('click', () => {
+        
+            utiles.delDiv(args[0], arr);
+            back.style.backgroundColor = '#fff';
+        });
+    }
 } 
 
 
