@@ -138,40 +138,78 @@ export let elementsThanks = {
     }
 }
 
+export let elementsRegistration = {
+    closeBtn: 'registration__back',
+    enterBtn: 'registration__reg',
+    divName: 'registration',
 
-export async function popUps(func, divName, backg, NameCloseBtn, arr, ...args) {
-    let closeBtn;
-    let back;
+    createElm() {
+        let div = document.createElement('div');
+        div.className = elementsRegistration.divName;
 
-    if( backg != null ) {
-        back = document.querySelector(backg);
-        back.style.backgroundColor = '#8d8d8d';
-    } else {
-        back = null;
+        let exitBtn = document.createElement('div');
+        exitBtn.className = 'enter__exit';
+
+        exitBtn.innerHTML = `<div class="registration__exit"><div class="registration__exit__block">
+        <div class="registration__exit__block--elm"></div></div></div>`;
+
+
+        let h1 = createLogoH1();
+
+        let h2 = document.createElement('h2');
+        h2.innerHTML = 'Регистрация';
+
+        let inputName = document.createElement('input');
+        let inputEmail = document.createElement('input');
+        let inputPassword = document.createElement('input');
+        let inputPasswordConf = document.createElement('input');
+
+        inputName.placeholder = 'Имя *';
+        inputEmail.placeholder = 'Email ';
+        inputPassword.placeholder = 'Пароль *';
+        inputPasswordConf.placeholder = 'Повторите пароль *';
+
+        let button = document.createElement('button');
+        button.className = elementsRegistration.enterBtn;
+        button.innerHTML = 'Зарегистрироваться';
+
+        div.append(exitBtn, h1, h2, inputName, inputEmail, inputPassword, 
+            inputPasswordConf, button);
+
+        return div;
     }
+}
+
+
+
+
+export async function popUps(func, backg, NameCloseBtn, prevDiv, div) {
+    let closeBtn;
+
+    changeBgColor(backg, '#8d8d8d');
 
     body.append( func() );
 
     if(NameCloseBtn != null) {
 
         closeBtn = document.querySelector(NameCloseBtn);
-
         closeBtn.addEventListener('click', () => {
-            closePopup(back, divName);
-
-            utiles.showPrevPopUp(arr[0]);
-        });
     
-    } else {
-        closeBtn = document.querySelector('.recovery__password--btn');
-        closeBtn.addEventListener('click', () => {
-        
-            utiles.delDiv(args[0], arr);
-            back.style.backgroundColor = '#fff';
+            utiles.showPrevPopUp(prevDiv);
+            closePopup(null, div);
         });
-    }
+    } 
 } 
 
+function changeBgColor( bgClass, color ) {
+    console.log(bgClass);
+
+    let a;
+    if(bgClass) {
+        a = document.querySelector(bgClass);
+        a.style.backgroundColor = color;
+    }
+}
 
 function closePopup(body, divName) {
     let div = document.querySelector(divName);
@@ -179,9 +217,7 @@ function closePopup(body, divName) {
 
     if( body != null ) {
         body.style.backgroundColor = '#fff'; 
-    } else {
-        return;
-    }
+    } 
 }
 
 function createLogoH1() {

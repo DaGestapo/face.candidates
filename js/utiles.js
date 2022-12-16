@@ -29,13 +29,12 @@ export function showPrevPopUp(divName) {
     div.style.visibility = 'visible';
 }
 
-export function delDiv(className, ...args) {
-    if(args != null) {
-        for(let i of args) {
+export function delDiv(arr, back) {
+    if(arr != null) {
+        for(let i of arr) {
             document.querySelector(i).remove();
         }
     } 
-    if(className != null) {
-        document.querySelector(className).remove();
-    }
+    let body = document.querySelector(back);
+    body.style.backgroundColor = '#fff';
 }
