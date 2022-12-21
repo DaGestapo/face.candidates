@@ -10,9 +10,6 @@ showLinks();
 export function showPopUpMenu(bool) {
 
     let check = bool;
-    console.log(check);
-
-
     if(check) {
         popUpMenu.classList.add('show');
         body.style.backgroundColor = '#8d8d8d';

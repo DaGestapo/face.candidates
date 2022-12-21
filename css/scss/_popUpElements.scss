@@ -1,56 +1,54 @@
-.popUp__Follow {
+.popUpBlock {
+    width: 90%;
     position: fixed;
+    margin: 1rem;
+    padding: 3rem 1rem;
     display: flex;
     flex-direction: column;
     align-items: center;
-    text-align: center;
-    gap: 2rem;
-    padding: 3rem 2rem;
-    margin: 1rem;
-    border-radius: 16px;
-    background: #fff;
-    transform: translateY(20vh);
-
-    h1 {
-        font-size: 30px;
-        display: flex;
-        align-items: center;
-        gap: 0.3rem;
-    }
-
-    h2 {
-        font-size: 24px;
-    }
-
-    button {
-        background: color(primary);
-        border: 1px solid transparent;
-        padding: 1rem 3rem;
-        border-radius: 3rem;
-        width: 90%;
-        font-size: 18px;
-        cursor: pointer;
-
-        &:hover {
-            background: #fff;
-            border: 1px solid color(primary);
-
-        }
-    }
-}
-
-.enter{
-    position: fixed;
-    margin: 1rem;
-    padding: 2rem 1rem;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 2rem;
+    gap: 1.5rem;
     background: #fff;
     border-radius: 2rem;
     z-index: 2;
     transform: translateY(8vh);
+
+    h1 {
+        display: flex;
+        align-items: center;
+        text-align: center;
+        gap: 0.3rem;
+        font-size: 30px;
+        margin-top: -1rem;
+    }
+
+    h2 {
+        text-align: center;
+        font-size: 24px;
+    }
+
+    input {
+        border: 1px solid color(icon-input);
+        border-radius: 2rem;
+        padding: 1rem 2rem;
+        width: 90%;
+        outline: none;
+    }
+
+    button {
+        width: 85%;
+        padding: 1rem;
+        border-radius: 2rem;
+        border: 1px solid transparent;
+        cursor: pointer;
+        font-size: 18px;
+        background: color(primary);
+    
+            &:hover {
+                border: 1px solid color(primary);
+                background: #fff;
+            }
+        
+    }
 
     &__exit {
         position: relative;
@@ -109,29 +107,23 @@
             }
         }
     }
+}
 
 
-    h1 {
-        display: flex;
-        align-items: center;
-        text-align: center;
-        gap: 0.3rem;
-        font-size: 30px;
-        margin-top: -1rem;
+.popUp__Follow {
+
+    button {
+        background: color(primary);
+
+        &:hover {
+            background: #fff;
+            border: 1px solid color(primary);
+
+        }
     }
+}
 
-    h2 {
-        text-align: center;
-        font-size: 24px;
-    }
-
-    input {
-        border: 1px solid color(icon-input);
-        border-radius: 2rem;
-        padding: 1rem 2rem;
-        width: 90%;
-        outline: none;
-    }
+.enter{
 
     &__forgot {
         width: 90%;
@@ -145,25 +137,6 @@
         }
     }
 
-    button {
-        width: 85%;
-        padding: 1rem;
-        border-radius: 2rem;
-        border: 1px solid transparent;
-        cursor: pointer;
-        font-size: 18px;
-    }
-
-    &__enter--btn {
-        background: color(primary);
-
-
-        &:hover {
-            border: 1px solid color(primary);
-            background: #fff;
-        }
-    }
-
     &__reg--btn {
         background: #fff;
         border: 1px solid color(primary);
@@ -173,217 +146,4 @@
             background: color(primary);
         }
     }
-}
-
-.forgot__password {
-    width: 90%;
-    position: fixed;
-    margin: 1rem;
-    padding: 3rem 1rem;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 1.5rem;
-    background: #fff;
-    border-radius: 2rem;
-    z-index: 2;
-    transform: translateY(8vh);
-
-
-    h1 {
-        display: flex;
-        align-items: center;
-        text-align: center;
-        gap: 0.3rem;
-        font-size: 30px;
-        margin-top: -1rem;
-    }
-
-    h2 {
-        text-align: center;
-        font-size: 24px;
-    }
-
-    input {
-        border: 1px solid color(icon-input);
-        border-radius: 2rem;
-        padding: 1rem 2rem;
-        width: 90%;
-        outline: none;
-    }
-
-    button {
-        width: 85%;
-        padding: 1rem;
-        border-radius: 2rem;
-        border: 1px solid transparent;
-        cursor: pointer;
-        font-size: 18px;
-    }
-
-    &--change {
-        background: color(primary);
-
-        &:hover {
-            border: 1px solid color(primary);
-            background: #fff;
-        }
-    }
-}
-
-.recovery__password {
-    width: 90%;
-    position: fixed;
-    margin: 1rem;
-    padding: 3rem 1rem;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 1.5rem;
-    background: #fff;
-    border-radius: 2rem;
-    z-index: 2;
-    transform: translateY(8vh);
-
-
-    h1 {
-        display: flex;
-        align-items: center;
-        text-align: center;
-        gap: 0.3rem;
-        font-size: 30px;
-        margin-top: -1rem;
-    }
-
-    h2 {
-        text-align: center;
-        font-size: 24px;
-    }
-
-     button {
-        width: 85%;
-        padding: 1rem;
-        border-radius: 2rem;
-        border: 1px solid transparent;
-        cursor: pointer;
-        font-size: 18px;
-        background: color(primary);
-
-        &:hover {
-            border: 1px solid color(primary);
-            background: #fff;
-        }
-    }
-
-}
-
-.registration {
-    width: 90%;
-    position: fixed;
-    margin: 1rem;
-    padding: 3rem 1rem;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 1.5rem;
-    background: #fff;
-    border-radius: 2rem;
-    z-index: 2;
-    transform: translateY(8vh);
-
-    h1 {
-        display: flex;
-        align-items: center;
-        text-align: center;
-        gap: 0.3rem;
-        font-size: 30px;
-        margin-top: -1rem;
-    }
-
-    h2 {
-        text-align: center;
-        font-size: 24px;
-    }
-
-    input {
-        border: 1px solid color(icon-input);
-        border-radius: 2rem;
-        padding: 1rem 2rem;
-        width: 90%;
-        outline: none;
-    }
-
-    button {
-        width: 85%;
-        padding: 1rem;
-        border-radius: 2rem;
-        border: 1px solid transparent;
-        cursor: pointer;
-        font-size: 18px;
-        background: color(primary);
-
-        &:hover {
-            border: 1px solid color(primary);
-            background: #fff;
-        }
-    }
-
-    &__exit {
-        position: relative;
-        width: 100%;
-        height: 2rem;
-        margin-top: -1rem;
-
-        &__block {
-            position: absolute;
-            width: 2rem;
-            height: 100%;
-            cursor: pointer;
-            right: 0;
-
-            &--elm {
-                position: absolute;
-                right: 0;
-                width: 2rem;
-                background: #000;
-                height: 0.1rem;
-                transform: rotate(45deg);
-                visibility: hidden;
-            }
-
-            &::before {
-                content: ' ';
-                position: absolute;
-                right: 0;
-                width: 2rem;
-                background: #000;
-                height: 0.1rem;
-                margin-top: 2rem;
-                transform: rotate(45deg);
-            }
-    
-            &::after {
-                position: absolute;
-                right: 0;
-                content: ' ';
-                width: 2rem;
-                background: #000;
-                height: 0.1rem;
-                margin-top: 2rem;
-                transform: rotate(-45deg);
-            }
-
-            &:hover {
-
-              &::before {
-                background: color(text-disc);
-              }
-
-              &::after {
-                background: color(text-disc);
-              }
-            }
-        }
-    }
-
 }

@@ -151,6 +151,9 @@
   transition: all 0.5s ease-in-out;
   transform: translateY(-100rem);
 }
+.popUpMenu .popUpMenu__reg--btn {
+  cursor: pointer;
+}
 .popUpMenu header {
   display: flex;
   flex-direction: row;
@@ -584,69 +587,66 @@
   border: 1px solid #F1DF6F;
 }
 
-.popUp__Follow {
-  position: fixed;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  gap: 2rem;
-  padding: 3rem 2rem;
-  margin: 1rem;
-  border-radius: 16px;
-  background: #fff;
-  transform: translateY(20vh);
-}
-.popUp__Follow h1 {
-  font-size: 30px;
-  display: flex;
-  align-items: center;
-  gap: 0.3rem;
-}
-.popUp__Follow h2 {
-  font-size: 24px;
-}
-.popUp__Follow button {
-  background: #F1DF6F;
-  border: 1px solid transparent;
-  padding: 1rem 3rem;
-  border-radius: 3rem;
+.popUpBlock {
   width: 90%;
-  font-size: 18px;
-  cursor: pointer;
-}
-.popUp__Follow button:hover {
-  background: #fff;
-  border: 1px solid #F1DF6F;
-}
-
-.enter {
   position: fixed;
   margin: 1rem;
-  padding: 2rem 1rem;
+  padding: 3rem 1rem;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 2rem;
+  gap: 1.5rem;
   background: #fff;
   border-radius: 2rem;
   z-index: 2;
   transform: translateY(8vh);
 }
-.enter__exit {
+.popUpBlock h1 {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  gap: 0.3rem;
+  font-size: 30px;
+  margin-top: -1rem;
+}
+.popUpBlock h2 {
+  text-align: center;
+  font-size: 24px;
+}
+.popUpBlock input {
+  border: 1px solid #c2c2c2;
+  border-radius: 2rem;
+  padding: 1rem 2rem;
+  width: 90%;
+  outline: none;
+}
+.popUpBlock button {
+  width: 85%;
+  padding: 1rem;
+  border-radius: 2rem;
+  border: 1px solid transparent;
+  cursor: pointer;
+  font-size: 18px;
+  background: #F1DF6F;
+}
+.popUpBlock button:hover {
+  border: 1px solid #F1DF6F;
+  background: #fff;
+}
+.popUpBlock__exit {
   position: relative;
   width: 100%;
   height: 2rem;
   margin-top: -1rem;
 }
-.enter__exit__block {
+.popUpBlock__exit__block {
   position: absolute;
   width: 2rem;
   height: 100%;
   cursor: pointer;
   right: 0;
 }
-.enter__exit__block--elm {
+.popUpBlock__exit__block--elm {
   position: absolute;
   right: 0;
   width: 2rem;
@@ -655,7 +655,7 @@
   transform: rotate(45deg);
   visibility: hidden;
 }
-.enter__exit__block::before {
+.popUpBlock__exit__block::before {
   content: " ";
   position: absolute;
   right: 0;
@@ -665,7 +665,7 @@
   margin-top: 2rem;
   transform: rotate(45deg);
 }
-.enter__exit__block::after {
+.popUpBlock__exit__block::after {
   position: absolute;
   right: 0;
   content: " ";
@@ -675,31 +675,21 @@
   margin-top: 2rem;
   transform: rotate(-45deg);
 }
-.enter__exit__block:hover::before {
+.popUpBlock__exit__block:hover::before {
   background: #626262;
 }
-.enter__exit__block:hover::after {
+.popUpBlock__exit__block:hover::after {
   background: #626262;
 }
-.enter h1 {
-  display: flex;
-  align-items: center;
-  text-align: center;
-  gap: 0.3rem;
-  font-size: 30px;
-  margin-top: -1rem;
+
+.popUp__Follow button {
+  background: #F1DF6F;
 }
-.enter h2 {
-  text-align: center;
-  font-size: 24px;
+.popUp__Follow button:hover {
+  background: #fff;
+  border: 1px solid #F1DF6F;
 }
-.enter input {
-  border: 1px solid #c2c2c2;
-  border-radius: 2rem;
-  padding: 1rem 2rem;
-  width: 90%;
-  outline: none;
-}
+
 .enter__forgot {
   width: 90%;
   text-align: right;
@@ -710,21 +700,6 @@
 .enter__forgot:hover {
   color: #F50F22;
 }
-.enter button {
-  width: 85%;
-  padding: 1rem;
-  border-radius: 2rem;
-  border: 1px solid transparent;
-  cursor: pointer;
-  font-size: 18px;
-}
-.enter__enter--btn {
-  background: #F1DF6F;
-}
-.enter__enter--btn:hover {
-  border: 1px solid #F1DF6F;
-  background: #fff;
-}
 .enter__reg--btn {
   background: #fff;
   border: 1px solid #F1DF6F;
@@ -732,190 +707,6 @@
 .enter__reg--btn:hover {
   border: 1px solid transparent;
   background: #F1DF6F;
-}
-
-.forgot__password {
-  width: 90%;
-  position: fixed;
-  margin: 1rem;
-  padding: 3rem 1rem;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 1.5rem;
-  background: #fff;
-  border-radius: 2rem;
-  z-index: 2;
-  transform: translateY(8vh);
-}
-.forgot__password h1 {
-  display: flex;
-  align-items: center;
-  text-align: center;
-  gap: 0.3rem;
-  font-size: 30px;
-  margin-top: -1rem;
-}
-.forgot__password h2 {
-  text-align: center;
-  font-size: 24px;
-}
-.forgot__password input {
-  border: 1px solid #c2c2c2;
-  border-radius: 2rem;
-  padding: 1rem 2rem;
-  width: 90%;
-  outline: none;
-}
-.forgot__password button {
-  width: 85%;
-  padding: 1rem;
-  border-radius: 2rem;
-  border: 1px solid transparent;
-  cursor: pointer;
-  font-size: 18px;
-}
-.forgot__password--change {
-  background: #F1DF6F;
-}
-.forgot__password--change:hover {
-  border: 1px solid #F1DF6F;
-  background: #fff;
-}
-
-.recovery__password {
-  width: 90%;
-  position: fixed;
-  margin: 1rem;
-  padding: 3rem 1rem;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 1.5rem;
-  background: #fff;
-  border-radius: 2rem;
-  z-index: 2;
-  transform: translateY(8vh);
-}
-.recovery__password h1 {
-  display: flex;
-  align-items: center;
-  text-align: center;
-  gap: 0.3rem;
-  font-size: 30px;
-  margin-top: -1rem;
-}
-.recovery__password h2 {
-  text-align: center;
-  font-size: 24px;
-}
-.recovery__password button {
-  width: 85%;
-  padding: 1rem;
-  border-radius: 2rem;
-  border: 1px solid transparent;
-  cursor: pointer;
-  font-size: 18px;
-  background: #F1DF6F;
-}
-.recovery__password button:hover {
-  border: 1px solid #F1DF6F;
-  background: #fff;
-}
-
-.registration {
-  width: 90%;
-  position: fixed;
-  margin: 1rem;
-  padding: 3rem 1rem;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 1.5rem;
-  background: #fff;
-  border-radius: 2rem;
-  z-index: 2;
-  transform: translateY(8vh);
-}
-.registration h1 {
-  display: flex;
-  align-items: center;
-  text-align: center;
-  gap: 0.3rem;
-  font-size: 30px;
-  margin-top: -1rem;
-}
-.registration h2 {
-  text-align: center;
-  font-size: 24px;
-}
-.registration input {
-  border: 1px solid #c2c2c2;
-  border-radius: 2rem;
-  padding: 1rem 2rem;
-  width: 90%;
-  outline: none;
-}
-.registration button {
-  width: 85%;
-  padding: 1rem;
-  border-radius: 2rem;
-  border: 1px solid transparent;
-  cursor: pointer;
-  font-size: 18px;
-  background: #F1DF6F;
-}
-.registration button:hover {
-  border: 1px solid #F1DF6F;
-  background: #fff;
-}
-.registration__exit {
-  position: relative;
-  width: 100%;
-  height: 2rem;
-  margin-top: -1rem;
-}
-.registration__exit__block {
-  position: absolute;
-  width: 2rem;
-  height: 100%;
-  cursor: pointer;
-  right: 0;
-}
-.registration__exit__block--elm {
-  position: absolute;
-  right: 0;
-  width: 2rem;
-  background: #000;
-  height: 0.1rem;
-  transform: rotate(45deg);
-  visibility: hidden;
-}
-.registration__exit__block::before {
-  content: " ";
-  position: absolute;
-  right: 0;
-  width: 2rem;
-  background: #000;
-  height: 0.1rem;
-  margin-top: 2rem;
-  transform: rotate(45deg);
-}
-.registration__exit__block::after {
-  position: absolute;
-  right: 0;
-  content: " ";
-  width: 2rem;
-  background: #000;
-  height: 0.1rem;
-  margin-top: 2rem;
-  transform: rotate(-45deg);
-}
-.registration__exit__block:hover::before {
-  background: #626262;
-}
-.registration__exit__block:hover::after {
-  background: #626262;
 }
 
 body {
