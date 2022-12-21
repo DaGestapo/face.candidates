@@ -1,7 +1,7 @@
 import * as utiles from './utiles.js';
 
 import {slider} from './slider.js';
-import {showPopUpMenu} from './popUpMenu.js';
+import {showPopUpMenu, hideHeader} from './popUpMenu.js';
 import { peopelSlider } from './peopleSlider.js';
 import { popUps } from './PopupElements.js';
 import { elementsFollow, elemetsEnters, 
@@ -12,6 +12,9 @@ const menu = document.querySelectorAll('.sticky__header--menu');
 const header = document.querySelector('.sticky__header');
 const regBtn = document.querySelector('.popUpMenu__reg--btn');
 const body = document.querySelector('body');
+const closePopUp = document.querySelectorAll('section');
+
+let exitBtn = '.popUpBlock__exit__block';
 
 (() => {
     slider();
@@ -36,7 +39,8 @@ const body = document.querySelector('body');
 
     regBtn.addEventListener('click', () => {
         showPopUpMenu();
-        popUps(elementsRegistration.createElm, null, '.registration__exit__block', '.registration', '.registration');
+        hideHeader(true);
+        popUps(elementsRegistration.createElm, null, exitBtn, '.registration', '.registration');
         let button = document.querySelector('.registration__reg');
         button.addEventListener('click', () => {
             showPopUpMenu();
@@ -51,9 +55,8 @@ const body = document.querySelector('body');
     elemetsEnters.openBtn.addEventListener( 'click', () => {
         let forgPasswordWayBtn;
         let regWayBtn;
-        let exitBtn = '.popUpBlock__exit__block';
 
-        openRegMenu(exitBtn).then( () => {
+        openRegMenu().then( () => {
             forgPasswordWayBtn = document.querySelector('.enter__forgot');
             regWayBtn = document.querySelector('.enter__reg--btn');
         
@@ -107,6 +110,14 @@ const body = document.querySelector('body');
             });
         }); 
     });
+    
+    closePopUp.forEach( (item) => {
+        item.addEventListener('click', () => {
+            let popUps = document.querySelectorAll('.popUpBlock');
+            utiles.delDiv(popUps, 'body');
+            showPopUpMenu();
+        });
+    });
 
 })();
 
@@ -119,7 +130,7 @@ function addToArray(elmClass, arr) {
 }
 
 
-function openRegMenu(exitBtn) {
+function openRegMenu() {
     document.querySelector('.popUpMenu').classList.remove('show');
     popUps(elemetsEnters.createElm, null, exitBtn, '.enter', '.enter' );
     return Promise.resolve();

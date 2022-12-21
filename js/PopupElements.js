@@ -13,9 +13,7 @@ export async function popUps(func, backg, NameCloseBtn, prevDiv, div) {
     if(NameCloseBtn != null) {
 
     let closeBtn = document.querySelectorAll(NameCloseBtn);
-    console.log(closeBtn);
     closeBtn = closeBtn[closeBtn.length - 1];
-    console.log(closeBtn);
 
     closeBtn.addEventListener('click', () => {
         

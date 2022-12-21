@@ -10,7 +10,6 @@ showLinks();
 export function showPopUpMenu() {
 
     popUpMenu.classList.toggle('show');
-    console.log( Array.from(popUpMenu.classList));
 
      if( Array.from(popUpMenu.classList).includes('show') ) {
          body.style.backgroundColor = '#8d8d8d';
@@ -35,7 +34,9 @@ export function hideHeader(bool) {
 
     if(bool) {
         header.style.visibility = 'hidden';
+        body.style.background = '#8d8d8d';
     } else {
         header.style.visibility = 'visible';
+        body.style.background = '#fff';
     }
 }
