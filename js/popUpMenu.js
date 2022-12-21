@@ -7,31 +7,28 @@ const body = document.querySelector('body');
 popUpLink();
 showLinks();
 
-export function showPopUpMenu(bool) {
+export function showPopUpMenu() {
 
-    let check = bool;
-    if(check) {
-        popUpMenu.classList.add('show');
-        body.style.backgroundColor = '#8d8d8d';
+    popUpMenu.classList.toggle('show');
+    console.log( Array.from(popUpMenu.classList));
 
-        hideHeader(check);
-        check = false;
+     if( Array.from(popUpMenu.classList).includes('show') ) {
+         body.style.backgroundColor = '#8d8d8d';
 
-        return check;
-    } else {
-        popUpMenu.classList.remove('show');
-        body.style.backgroundColor = '#fff';
+         hideHeader(true);
+     } else {
+         body.style.backgroundColor = '#fff';
 
-        hideHeader(check);
-
-        check = true;
-
-        return check;
-    }
-    
-
-
+         hideHeader(false);
+     }
 }
+
+export function hidePopUpMenu() {
+    popUpMenu.classList.remove('show');
+
+     hideHeader(false);
+}
+
 
 export function hideHeader(bool) {
     const header = document.querySelector('.sticky__header');

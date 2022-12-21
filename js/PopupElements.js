@@ -6,27 +6,29 @@ const body = document.querySelector('body');
 
 
 export async function popUps(func, backg, NameCloseBtn, prevDiv, div) {
-    let closeBtn;
 
     changeBgColor(backg, '#8d8d8d');
 
     body.append( func() );
-
     if(NameCloseBtn != null) {
-        console.log(prevDiv, div, NameCloseBtn);
-        closeBtn = document.querySelector(NameCloseBtn);
-        closeBtn.addEventListener('click', () => {
-            console.log(prevDiv, div, NameCloseBtn);
-            utiles.showPrevPopUp(prevDiv);
-            closePopup(null, div);
-            showPopUpMenu(false);
 
-        });
+    let closeBtn = document.querySelectorAll(NameCloseBtn);
+    console.log(closeBtn);
+    closeBtn = closeBtn[closeBtn.length - 1];
+    console.log(closeBtn);
+
+    closeBtn.addEventListener('click', () => {
+        
+        utiles.showPrevPopUp(prevDiv);
+        closePopup(null, div);
+        if( document.querySelectorAll('.popUpBlock').length == 0 ) {
+            showPopUpMenu();
+        }
+    });
     } 
 } 
 
 function changeBgColor( bgClass, color ) {
-    console.log(bgClass);
 
     let a;
     if(bgClass) {

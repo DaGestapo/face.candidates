@@ -28,26 +28,21 @@ const body = document.querySelector('body');
     });
 
 
-    let check = true;
-    menu.forEach( function (item) {
-
+    menu.forEach( (item) => {
         item.addEventListener('click', () => {
-            if(check) check = showPopUpMenu(check);
-            else check = showPopUpMenu(check);
+            showPopUpMenu();
         });
     });
 
     regBtn.addEventListener('click', () => {
-        document.querySelector('.popUpMenu').classList.remove('show');
+        showPopUpMenu();
         popUps(elementsRegistration.createElm, null, '.registration__exit__block', '.registration', '.registration');
-
         let button = document.querySelector('.registration__reg');
         button.addEventListener('click', () => {
-            if(check) check = showPopUpMenu(check);
-            else check = showPopUpMenu(check);
+            showPopUpMenu();
 
             utiles.delDiv( ['.registration'], '.popUpMenu' );
-            check = true;
+       
         });
 
     });
@@ -56,8 +51,9 @@ const body = document.querySelector('body');
     elemetsEnters.openBtn.addEventListener( 'click', () => {
         let forgPasswordWayBtn;
         let regWayBtn;
+        let exitBtn = '.popUpBlock__exit__block';
 
-        openRegMenu().then( () => {
+        openRegMenu(exitBtn).then( () => {
             forgPasswordWayBtn = document.querySelector('.enter__forgot');
             regWayBtn = document.querySelector('.enter__reg--btn');
         
@@ -81,8 +77,7 @@ const body = document.querySelector('body');
         
                         prevElm = addToArray(elementsThanks.divName.split(' ')[0], hiddenDiv);
                         
-                        if(check) check = showPopUpMenu(check);
-                        else check = showPopUpMenu(check);
+                        showPopUpMenu();
                         
                         utiles.delDiv( hiddenDiv, '.popUpMenu' );
                         hiddenDiv = [];
@@ -93,17 +88,19 @@ const body = document.querySelector('body');
             regWayBtn.addEventListener('click', () => {
         
                 utiles.hidePrevPopUp(prevElm);
-                popUps(elementsRegistration.createElm, null, '.registration__exit__block', hiddenDiv);
+                popUps(elementsRegistration.createElm, null, exitBtn, prevElm, '.registration');
             
                 regWayBtn = document.querySelector('.registration__reg');
                 regWayBtn.addEventListener('click', () => {
         
                     prevElm = addToArray(elementsRegistration.divName.split(' ')[0], hiddenDiv);
                     utiles.hidePrevPopUp(prevElm);
-                    popUps(elementCompleteReg.createElm, null, '.popUpBlock__exit__block', prevElm, '.registration__compl');
+                    popUps(elementCompleteReg.createElm, null, exitBtn, prevElm, '.registration__compl');
 
                     regWayBtn = document.querySelector('.registration__compl--btn');
                     regWayBtn.addEventListener('click', () => {
+                        
+                        prevElm = addToArray(elementCompleteReg.divName.split(' ')[0], hiddenDiv);
                         
                     });
                 });
@@ -114,9 +111,6 @@ const body = document.querySelector('body');
 })();
 
 
-// utiles.delDiv( hiddenDiv, '.popUpMenu' );
-// hiddenDiv = [];
-
 function addToArray(elmClass, arr) {
     let i = `.${elmClass}`;
     arr.push(i);
@@ -125,8 +119,8 @@ function addToArray(elmClass, arr) {
 }
 
 
-async function openRegMenu() {
+function openRegMenu(exitBtn) {
     document.querySelector('.popUpMenu').classList.remove('show');
-    popUps(elemetsEnters.createElm, null,'.popUpBlock__exit__block', '.enter', '.enter' );
+    popUps(elemetsEnters.createElm, null, exitBtn, '.enter', '.enter' );
     return Promise.resolve();
  }

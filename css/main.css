@@ -591,7 +591,7 @@
   width: 90%;
   position: fixed;
   margin: 1rem;
-  padding: 3rem 1rem;
+  padding: 2rem 1rem;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -607,7 +607,6 @@
   text-align: center;
   gap: 0.3rem;
   font-size: 30px;
-  margin-top: -1rem;
 }
 .popUpBlock h2 {
   text-align: center;
@@ -663,7 +662,7 @@
   background: #000;
   height: 0.1rem;
   margin-top: 2rem;
-  transform: rotate(45deg);
+  transform: rotate(45deg) translate(-0.7rem, -0.7rem);
 }
 .popUpBlock__exit__block::after {
   position: absolute;
@@ -673,7 +672,7 @@
   background: #000;
   height: 0.1rem;
   margin-top: 2rem;
-  transform: rotate(-45deg);
+  transform: rotate(-45deg) translate(0.7rem, -0.7rem);
 }
 .popUpBlock__exit__block:hover::before {
   background: #626262;

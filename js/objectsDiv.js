@@ -40,8 +40,8 @@ export let elemetsEnters = {
         let exitBtn = document.createElement('div');
         exitBtn.className = 'popUpBlock__exit';
 
-        exitBtn.innerHTML = `<div class="popUpBlock__exit"><div class="popUpBlock__exit__block">
-        <div class="popUpBlock__exit__block--elm"></div></div></div>`;
+        exitBtn.innerHTML = `<div class="popUpBlock__exit__block">
+        <div class="popUpBlock__exit__block--elm"></div></div>`;
 
         let h1 = createLogoH1();
         
@@ -134,7 +134,7 @@ export let elementsThanks = {
 }
 
 export let elementsRegistration = {
-    closeBtn: 'registration__back',
+    closeBtn: 'popUpBlock__exit',
     enterBtn: 'registration__reg',
     divName: 'registration popUpBlock',
 
@@ -143,10 +143,10 @@ export let elementsRegistration = {
         div.className = elementsRegistration.divName;
 
         let exitBtn = document.createElement('div');
-        exitBtn.className = 'enter__exit';
+        exitBtn.className = elementsRegistration.closeBtn;
 
-        exitBtn.innerHTML = `<div class="registration__exit"><div class="registration__exit__block">
-        <div class="registration__exit__block--elm"></div></div></div>`;
+        exitBtn.innerHTML = `<div class="popUpBlock__exit__block">
+        <div class="popUpBlock__exit__block--elm"></div></div>`;
 
 
         let h1 = createLogoH1();
@@ -187,8 +187,8 @@ export let elementCompleteReg = {
         let exitBtn = document.createElement('div');
         exitBtn.className = 'popUpBlock__exit';
 
-        exitBtn.innerHTML = `<div class="popUpBlock__exit"><div class="popUpBlock__exit__block">
-        <div class="popUpBlock__exit__block--elm"></div></div></div>`;
+        exitBtn.innerHTML = `<div class="popUpBlock__exit__block">
+        <div class="popUpBlock__exit__block--elm"></div></div>`;
 
         let h1 = createLogoH1();
 
