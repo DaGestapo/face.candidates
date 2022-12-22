@@ -3,7 +3,7 @@ import * as utiles from './utiles.js';
 import {slider} from './slider.js';
 import {showPopUpMenu, hideHeader} from './popUpMenu.js';
 import { peopelSlider } from './peopleSlider.js';
-import { popUps } from './PopupElements.js';
+import { popUps, popUpNotFromMenu } from './PopupElements.js';
 import { elementsFollow, elemetsEnters, 
     elementsForgotPassword, elementsThanks, elementsRegistration, 
     elementCompleteReg } from './objectsDiv.js';
@@ -12,9 +12,9 @@ const menu = document.querySelectorAll('.sticky__header--menu');
 const header = document.querySelector('.sticky__header');
 const regBtn = document.querySelector('.popUpMenu__reg--btn');
 const body = document.querySelector('body');
-const closePopUp = document.querySelectorAll('section');
 
 let exitBtn = '.popUpBlock__exit__block';
+let closeMenu = false;
 
 (() => {
     slider();
@@ -22,20 +22,26 @@ let exitBtn = '.popUpBlock__exit__block';
 
 
     elementsFollow.openBtn.addEventListener('click', () => {
-        popUps(elementsFollow.createElm, 'body', '.popUp__Follow--btn', '.popUp__Follow');
-
-        let closeBtn = document.querySelector('.popUp__Follow--btn');
-        closeBtn.addEventListener('click', () => {
-            utiles.delDiv( ['.popUp__Follow'], 'body' );
-        });
+        popUpNotFromMenu(elementsFollow.createElm, 'body', '.popUp__Follow--btn', '.popUp__Follow', '.popUp__Follow');
     });
 
 
-    menu.forEach( (item) => {
+    closePopup().then( () => {
+        let closePopUp = document.querySelectorAll('section');
+        closePopUp.forEach( (item) => {
+
         item.addEventListener('click', () => {
-            showPopUpMenu();
+            let popUps = document.querySelectorAll('.popUpBlock');
+            if(closeMenu) {
+                utiles.delDiv(popUps, 'body');
+                
+                closeMenu = showPopUpMenu();
+            }
+
+            });
         });
     });
+
 
     regBtn.addEventListener('click', () => {
         showPopUpMenu();
@@ -109,15 +115,21 @@ let exitBtn = '.popUpBlock__exit__block';
                 });
             });
         }); 
+
+
     });
     
-    closePopUp.forEach( (item) => {
-        item.addEventListener('click', () => {
-            let popUps = document.querySelectorAll('.popUpBlock');
-            utiles.delDiv(popUps, 'body');
-            showPopUpMenu();
+
+    async function closePopup() {
+        menu.forEach( (item, index) => {
+            item.addEventListener('click', () => {
+                showPopUpMenu();
+
+                if( index == 0 ) closeMenu = true;
+                else closeMenu = false;
+            });
         });
-    });
+     }
 
 })();
 
@@ -135,3 +147,4 @@ function openRegMenu() {
     popUps(elemetsEnters.createElm, null, exitBtn, '.enter', '.enter' );
     return Promise.resolve();
  }
+

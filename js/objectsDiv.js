@@ -1,7 +1,7 @@
 export let elementsFollow = {
     openBtn: document.querySelector('.follow__section--btn'),
     classCloseBtn: 'popUp__Follow--btn', 
-    divName: 'popUp__Follow popUpBlock',
+    divName: 'popUp__Follow popUpBlock otter',
     
     createElm() {
         let div = document.createElement('div');

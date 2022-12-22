@@ -5,7 +5,7 @@ const body = document.querySelector('body');
 
 
 
-export async function popUps(func, backg, NameCloseBtn, prevDiv, div) {
+export function popUps(func, backg, NameCloseBtn, prevDiv, div) {
 
     changeBgColor(backg, '#8d8d8d');
 
@@ -17,14 +17,39 @@ export async function popUps(func, backg, NameCloseBtn, prevDiv, div) {
 
     closeBtn.addEventListener('click', () => {
         
+        let checker = document.querySelector('.otter');
         utiles.showPrevPopUp(prevDiv);
         closePopup(null, div);
-        if( document.querySelectorAll('.popUpBlock').length == 0 ) {
+        let popUpElms = document.querySelectorAll('.popUpBlock');
+        console.log(popUpElms);
+        
+        if( popUpElms.length == 0 ) {
             showPopUpMenu();
         }
     });
+
     } 
+
 } 
+
+export function popUpNotFromMenu(func, backg, NameCloseBtn, prevDiv, div) {
+    changeBgColor(backg, '#8d8d8d');
+
+    body.append( func() );
+    
+    let closeBtn = document.querySelectorAll(NameCloseBtn);
+    closeBtn = closeBtn[closeBtn.length - 1];
+
+    closeBtn.addEventListener('click', () => {
+  
+        utiles.showPrevPopUp(prevDiv);
+        closePopup(null, div);
+        changeBgColor(backg, '#fff');
+      
+    });
+
+    } 
+
 
 function changeBgColor( bgClass, color ) {
 

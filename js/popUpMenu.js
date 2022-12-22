@@ -9,7 +9,7 @@ showLinks();
 
 export function showPopUpMenu() {
 
-    popUpMenu.classList.toggle('show');
+    let result = popUpMenu.classList.toggle('show');
 
      if( Array.from(popUpMenu.classList).includes('show') ) {
          body.style.backgroundColor = '#8d8d8d';
@@ -20,6 +20,7 @@ export function showPopUpMenu() {
 
          hideHeader(false);
      }
+     return result;
 }
 
 export function hidePopUpMenu() {
