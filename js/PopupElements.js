@@ -17,7 +17,6 @@ export function popUps(func, backg, NameCloseBtn, prevDiv, div) {
 
     closeBtn.addEventListener('click', () => {
         
-        let checker = document.querySelector('.otter');
         utiles.showPrevPopUp(prevDiv);
         closePopup(null, div);
         let popUpElms = document.querySelectorAll('.popUpBlock');

@@ -30,7 +30,7 @@ export let elementsFollow = {
 export let elemetsEnters = {
     openBtn: document.querySelector('.popUpMenu__open--btn'),
     enterBtn: 'enter__enter--btn',
-    regBtn: 'enter__reg--btn',
+    regBtn: 'enter--btn',
     divName: 'enter popUpBlock',
 
     createElm() {
@@ -79,7 +79,7 @@ export let elemetsEnters = {
 
 export let elementsForgotPassword = {
     closeBtn: 'forgot__password--back',
-    enterBtn: 'forgot__password--change',
+    enterBtn: 'forgot__password--btn',
     divName: 'forgot__password popUpBlock',
 
     createElm() {
@@ -135,7 +135,7 @@ export let elementsThanks = {
 
 export let elementsRegistration = {
     closeBtn: 'popUpBlock__exit',
-    enterBtn: 'registration__reg',
+    enterBtn: 'registration--btn',
     divName: 'registration popUpBlock',
 
     createElm() {
@@ -209,6 +209,34 @@ export let elementCompleteReg = {
     }
 }
 
+export let elementSubcription = {
+    enterBtn: 'subscription--btn',
+    divName: 'subscription popUpBlock',
+
+    createElm() {
+        let div = document.createElement('div');
+        div.setAttribute('class', elementSubcription.divName);
+
+        let exitBtn = document.createElement('div');
+        exitBtn.className = 'popUpBlock__exit';
+
+        exitBtn.innerHTML = `<div class="popUpBlock__exit__block">
+        <div class="popUpBlock__exit__block--elm"></div></div>`;
+
+        let h1 = createLogoH1();
+
+        let h2 = document.createElement('h2');
+        h2.innerHTML = `Активируйте подписку, чтобы получить доступ к базе проверенных кандидатов`;
+
+        let button = document.createElement('button');
+        button.className = elementSubcription.enterBtn;
+        button.innerHTML = 'Активировать подписку';
+
+        div.append(exitBtn, h1, h2, button);
+
+        return div;
+    }
+}
 
 
 
