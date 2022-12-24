@@ -142,13 +142,6 @@ export let elementsRegistration = {
         let div = document.createElement('div');
         div.className = elementsRegistration.divName;
 
-        let exitBtn = document.createElement('div');
-        exitBtn.className = elementsRegistration.closeBtn;
-
-        exitBtn.innerHTML = `<div class="popUpBlock__exit__block">
-        <div class="popUpBlock__exit__block--elm"></div></div>`;
-
-
         let h1 = createLogoH1();
 
         let h2 = document.createElement('h2');
@@ -168,7 +161,7 @@ export let elementsRegistration = {
         button.className = elementsRegistration.enterBtn;
         button.innerHTML = 'Зарегистрироваться';
 
-        div.append(exitBtn, h1, h2, inputName, inputEmail, inputPassword, 
+        div.append( h1, h2, inputName, inputEmail, inputPassword, 
             inputPasswordConf, button);
 
         return div;
@@ -184,12 +177,6 @@ export let elementCompleteReg = {
         let div = document.createElement('div');
         div.setAttribute('class', elementCompleteReg.divName);
 
-        let exitBtn = document.createElement('div');
-        exitBtn.className = 'popUpBlock__exit';
-
-        exitBtn.innerHTML = `<div class="popUpBlock__exit__block">
-        <div class="popUpBlock__exit__block--elm"></div></div>`;
-
         let h1 = createLogoH1();
 
         let h2 = document.createElement('h2');
@@ -202,7 +189,7 @@ export let elementCompleteReg = {
         button.className = elementCompleteReg.enterBtn;
         button.innerHTML = 'А что дальше';
 
-        div.append(exitBtn, h1, h2, p, button);
+        div.append( h1, h2, p, button);
 
         return div;
 
@@ -217,12 +204,6 @@ export let elementSubcription = {
         let div = document.createElement('div');
         div.setAttribute('class', elementSubcription.divName);
 
-        let exitBtn = document.createElement('div');
-        exitBtn.className = 'popUpBlock__exit';
-
-        exitBtn.innerHTML = `<div class="popUpBlock__exit__block">
-        <div class="popUpBlock__exit__block--elm"></div></div>`;
-
         let h1 = createLogoH1();
 
         let h2 = document.createElement('h2');
@@ -232,7 +213,7 @@ export let elementSubcription = {
         button.className = elementSubcription.enterBtn;
         button.innerHTML = 'Активировать подписку';
 
-        div.append(exitBtn, h1, h2, button);
+        div.append( h1, h2, button);
 
         return div;
     }

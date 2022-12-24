@@ -51,6 +51,7 @@ let closeMenu = false;
         });
     });
 
+
     //Registration button, open reg popUp
     regBtn.addEventListener('click', () => {
         showPopUpMenu();
@@ -64,44 +65,30 @@ let closeMenu = false;
 
     // Open enter popUp div
     elemetsEnters.openBtn.addEventListener( 'click', () => {
-        let forgPasswordWayBtn;
-        let regWayBtn;
 
         // "Forgot Password" way popUps
         openEnterPopUp().then( () => {
-            forgPasswordWayBtn = document.querySelector('.enter__forgot');
-            regWayBtn = document.querySelector('.enter--btn');
+            let forgPasswordWayBtn = document.querySelector('.enter__forgot');
         
-                let hiddenDiv = [];
-                let prevElm;
+            let hiddenDiv = new Set();
 
-                forgPasswordWayBtn.addEventListener('click', () => {
+            forgPasswordWayBtn.addEventListener('click', () => {
                     
-                prevElm = addToArray(elemetsEnters.divName.split(' ')[0], hiddenDiv);
-                utiles.hidePrevPopUp(prevElm);
+                let prevElm = addPopUpToHTML(elemetsEnters, hiddenDiv);
                 popUps(elementsForgotPassword.createElm, null, '.forgot__password--back', prevElm, '.forgot__password');
             
-                forgPasswordWayBtn = document.querySelector('.forgot__password--btn');
-                forgPasswordWayBtn.addEventListener('click', () => {
-
-                    prevElm = addPopUpToHTML(elementsThanks, elementsForgotPassword, hiddenDiv, prevElm, null)
-                    
-                    forgPasswordWayBtn = document.querySelector('.recovery__password--btn');
-                    forgPasswordWayBtn.addEventListener('click', () => {
-        
-                        prevElm = addToArray(elementsThanks.divName.split(' ')[0], hiddenDiv);
-                        
-                        showPopUpMenu();
-                        
-                        utiles.delDiv( hiddenDiv, '.popUpMenu' );
-                        hiddenDiv = [];
-                    });
-                });
+                let forgPasswordArr = ['.forgot__password', '.recovery__password'];
+                let pairsOfObjectsForgWAY = [[elementsThanks, elementsForgotPassword]];
+                loopThroughtPopup(forgPasswordArr, pairsOfObjectsForgWAY, hiddenDiv);
+                  
+              
             });
             
             // Registration way popUp
-            
-            openRegistrationWayPopUps(hiddenDiv);
+            let regWayArr = ['.enter', '.registration', '.registration__compl', '.subscription'];
+            let pairsOfObjectsRegWay = [[elementsRegistration, elemetsEnters], 
+                [elementCompleteReg, elementsRegistration], [elementSubcription, elementCompleteReg]];
+            loopThroughtPopup(regWayArr, pairsOfObjectsRegWay, hiddenDiv);
                 
           
         }); 
@@ -110,78 +97,76 @@ let closeMenu = false;
     });
     
     // Open menu
-    async function openAndCloseMenu() {
-        menu.forEach( (item, index) => {
-            item.addEventListener('click', () => {
-                showPopUpMenu();
-
-                if( index == 0 ) closeMenu = true;
-                else closeMenu = false;
-            });
-        });
-     }
 
 })();
 
 
-function openRegistrationWayPopUps( hiddenDiv) {
+async function openAndCloseMenu() {
+    menu.forEach( (item, index) => {
+        item.addEventListener('click', () => {
+            showPopUpMenu();
 
-    let regWayBtn;
-    let prevElm ='.enter';
-    let regWayArr = ['.enter', '.registration', '.registration__compl', '.subscription'];
-    let pairsOfObjects = [[elementsRegistration, elemetsEnters], [elementCompleteReg, elementsRegistration], [elementSubcription, elementCompleteReg]];
+            if( index == 0 ) closeMenu = true;
+            else closeMenu = false;
+        });
+    });
+ }
 
-    loopThroughtPopup(regWayArr, pairsOfObjects, prevElm, hiddenDiv);
- 
-}
 
-async function loopThroughtPopup(arr,arrObj , prevElm, hiddenDiv) {
+async function loopThroughtPopup(arr, arrObj, hiddenDiv) {
+    
+    let prevElm;
 
     for( let i = 0; i < arr.length; i++ ) {
-
         let btn = document.querySelector(arr[i] + '--btn');
-        
         let promise = new Promise( (resolve, reject) => {
             btn.addEventListener('click', () => {
                 try {
-                    prevElm = addPopUpToHTML(arrObj[i][0], arrObj[i][1], hiddenDiv, prevElm, arr[i]);
+                    console.log('GG');
+                     prevElm = addPopUpToHTML(arrObj[i][1], hiddenDiv);
+                    let saveStr = `.${arrObj[i][0].divName.split(' ')[0]}`;
+                    let addStr = `.${arrObj[i][1].divName.split(' ')[0]}`;
+                    popUps(arrObj[i][0].createElm, null, null, addStr, saveStr);
+
                     resolve();
-                } catch {
-                    reject( new Error( 'undefine error' ));
-                }
+                 } catch {
+                    reject( new Error() );
+                 }
             });
         }).catch( () => {
-            prevElm = addToArray(elementSubcription.divName.split(' ')[0], hiddenDiv);
+             prevElm = addToArray(arr[i], hiddenDiv);
                 
-            showPopUpMenu();
+             showPopUpMenu();
             
-            utiles.delDiv( hiddenDiv, '.popUpMenu' );
-            hiddenDiv = [];
-            return;
-        });
+             utiles.delDiv( hiddenDiv, '.popUpMenu' );
+             hiddenDiv.clear();
+         });
 
         await promise;
     }
 }
 
 
-function addPopUpToHTML(objToAdd, objToSave, arr, elm, divClass) {
+function addPopUpToHTML(objToSave, arr) {
     let result = addToArray(objToSave.divName.split(' ')[0], arr);
-
     utiles.hidePrevPopUp(result);
-    console.log(elm);
-    
-    popUps(objToAdd.createElm, null, exitBtn, elm, divClass);
 
     return result;
+  
 }
 
 
 
 // Add to array function
 function addToArray(elmClass, arr) {
+    if(elmClass.includes('.')) {
+        arr.add(elmClass);
+
+        return elmClass;
+    } 
+
     let i = `.${elmClass}`;
-    arr.push(i);
+    arr.add(i);
 
     return i;
 }

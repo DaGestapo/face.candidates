@@ -5,7 +5,7 @@ const body = document.querySelector('body');
 
 
 
-export function popUps(func, backg, NameCloseBtn, prevDiv, div) {
+export async function popUps(func, backg, NameCloseBtn, prevDiv, div) {
 
     changeBgColor(backg, '#8d8d8d');
 
@@ -15,18 +15,23 @@ export function popUps(func, backg, NameCloseBtn, prevDiv, div) {
     let closeBtn = document.querySelectorAll(NameCloseBtn);
     closeBtn = closeBtn[closeBtn.length - 1];
 
-    closeBtn.addEventListener('click', () => {
-        
-        utiles.showPrevPopUp(prevDiv);
-        closePopup(null, div);
-        let popUpElms = document.querySelectorAll('.popUpBlock');
-        console.log(popUpElms);
-        
-        if( popUpElms.length == 0 ) {
-            showPopUpMenu();
-        }
+    let promise = new Promise( resolve => {
+        closeBtn.addEventListener('click', () => {
+            utiles.showPrevPopUp(prevDiv);
+            console.log('hi');
+
+            closePopup(null, div);
+            let popUpElms = document.querySelectorAll('.popUpBlock');
+            
+            if( popUpElms.length == 0 ) {
+                showPopUpMenu();
+            }
+
+            resolve();
+        })
     });
 
+    return await promise;
     } 
 
 } 

@@ -30,10 +30,10 @@ export function showPrevPopUp(divName) {
 }
 
 export function delDiv(arr, back) {
-    console.log(arr);
     if(arr != null) {
         for(let i of arr) {
             try {
+                console.log(i);
                 document.querySelector(i).remove();
             } catch {
                 i.remove();
