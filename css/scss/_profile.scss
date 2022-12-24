@@ -1,0 +1,135 @@
+.user {
+    display: flex;
+    gap: 1.5rem;
+    flex-direction: column;
+    padding: 1rem;
+    
+
+    &__profile {
+        margin-top: 8rem;
+        display: grid;
+        grid-template-columns: 25% 80%;
+        row-gap: 0;
+        column-gap: 1rem;
+
+
+        img {
+            width: 100%;
+            grid-row: 1 / span 2 ;
+        }
+
+        h2 {
+            font-size: 26px;
+            align-items: center;
+        }
+
+        h3 {
+            font-size: 18px;
+            display: flex;
+            gap: 0.5rem;
+            align-items: center;
+
+            div {
+                width: 0.6rem;
+                height: 0.6rem;
+                background-color: color(text-gray);
+                border-radius: 50%;
+              }
+        }
+    }
+    
+    button {
+        width: 60%;
+        padding: 1rem;
+        border-radius: 2rem;
+        border: 1px solid transparent;
+        cursor: pointer;
+        font-size: 18px;
+        background: color(primary);
+    
+            &:hover {
+                border: 1px solid color(primary);
+                background: #fff;
+            }
+        
+    }
+
+    a {
+        color: color(select-text);
+        font-size: 20px;
+        text-decoration: underline;
+    }
+}
+
+.history {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    //color: color(text-gray);
+
+    div {
+        display: grid;
+        grid-template-columns: 30% 70%;
+        row-gap: 1rem;
+
+        h1 {
+            grid-column: 1 / 2 span;
+            font-size: 24px;
+            color: color(text-gray);
+        }
+
+        h2 {
+            font-size: 20px;
+            color: color(text-gray);
+        }
+
+       
+    }
+
+    &__contacts--left {
+        text-align: left;
+    }
+
+    &__contacts--right {
+        text-align: right;
+    }
+
+}
+
+.subscribe {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    
+    h1 {
+        width: 100%;
+        text-align: left;
+    }
+
+    div {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        font-size: 18px;
+
+        span {
+            font-size: 24px;
+        }
+    }
+
+
+    button {
+        width: 100%;
+        cursor: pointer;
+        background: color(primary);
+    
+            &:hover {
+                border: 1px solid color(primary);
+                background: #fff;
+            }
+        
+    }
+}

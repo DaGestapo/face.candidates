@@ -1,3 +1,5 @@
+
+
 export function moveSlider(arr, count, prec) {
     arr.forEach( slide => {
         slide.style.transform = `translateX( -${count * prec}%)`;
@@ -33,7 +35,6 @@ export function delDiv(arr, back) {
     if(arr != null) {
         for(let i of arr) {
             try {
-                console.log(i);
                 document.querySelector(i).remove();
             } catch {
                 i.remove();

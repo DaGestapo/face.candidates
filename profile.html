@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- StyleSheet -->
+    <link rel="stylesheet" href="./css/main.css">
+
+    <!-- BootStrap icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css">
+    <title>Профиль</title>
+</head>
+<body>
+
+    <header class="sticky__header">
+        <img src="./img/logo.png" alt="">
+        <div class="sticky__header--search">
+            <i class="bi bi-search"></i>
+            <input type="text" placeholder="Поиск">
+        </div>
+        <div class="sticky__header--menu">
+            <div class="sticky__header--menu--item"></div>
+        </div>
+    </header>
+
+   <!-- PopUp Menu -->
+   <div class="popUpMenu">
+    <header>
+        <img src="./img/logo.png" alt="">
+        <div class="sticky__header--menu">
+            <div class="menu--item"></div>
+        </div>
+    </header>
+    <div class="popUpMenu__search">
+        <i class="bi bi-search"></i>
+        <input type="text" placeholder="Поиск">
+    </div>
+
+    <div class="popUpMenu__mergeList">
+        <ul>
+            <li class="head-item" id="markets">Маркетинг</li>
+            <ul class="markets"></ul>
+            <li class="head-item" id="backeEnd">Backend-разработчик</li>
+            <ul class="backeEnd"></ul>
+            <li class="head-item" id="disign">Дизайнеры</li>
+            <ul class="disign"></ul>
+            <li class="head-item" id="manage">Менеджеры по продажам</li>
+            <ul class="manage"></ul>
+            <li class="head-item">Пункт 1</li>
+            <li class="head-item">Пункт 2</li>
+            <li class="head-item">Пункт 3</li>
+        </ul>
+    </div>
+
+    <span class="show--more">Еще <span><i class="bi bi-caret-down"></i></span></span>
+
+    <ul class="popUpMenu__list">
+        <li><a href="#">Найти кандидата</a></li>
+        <li><a href="#">Попасть в базу</a></li>
+        <li><a href="#">О сервисе</a></li>
+    </ul>
+    <div class="popUpMenu__profile">
+        <img src="./img/people/Avatar(3).png" alt="">
+        <h2>Иван Петров</h2>
+        <h3><span><div></div></span> Подписка не дейсчтвительна</h3>
+    </div>
+
+        <ul>
+            <li><a href="#">Посмотреть профиль</a></li>
+            <li><a href="#">Выйти</a></li>
+        </ul>
+    </div>
+
+    <section class="user">
+        <div class="user__profile">
+            <img src="./img/people/Avatar(3).png" alt="">
+            <h2>Иван Петров</h2>
+            <h3><span><div></div></span> Подписка не активна</h3>
+        </div>
+
+        <button>Активировать</button>
+
+        <a href="#">Запросить счет</a>
+    </section>
+
+    <section class="history">
+        <div class="history__contacts">
+            <h1>Открыто контактов:</h1>
+            <h2 class="history__contacts--left" >0/50</h2>
+            <h2 class="history__contacts--right">Докупить контакты</h2>
+        </div>
+        <div class="history__candidates">
+            <h1 >Просмотренно кандидатов:</h1>
+            <h2 class="history__contacts--left">0/100</h2>
+            <h2 class="history__contacts--right">Скрыть из результатов уже просмотренных кандидатов</h2>
+        </div>
+    </section>
+
+    <section class="subscribe">
+        <h1>Оформить подписку</h1>
+        <div>
+            <h3>1 месяц  <span> 4900Р</span></h3>
+            <button>Оформить</button>
+        </div>
+
+        <div>
+            <h3>1 месяц <span>49000Р</span></h3>
+            <button>Оформить</button>
+        </div>
+    </section>
+        
+    <!-- Footer section -->
+    <section class="footer">
+        <ul class="footer__candidates">
+            <li class="footer__candidates--item head">Лица.Кандидаты</li>
+            <li class="footer__candidates--item"><a href="#">Найти кандидата</a></li>
+            <li class="footer__candidates--item"><a href="#">Попасть в базу</a></li>
+            <li class="footer__candidates--item"><a href="#">О сервисе</a></li>
+        </ul>
+
+        <ul class="footer__job">
+            <li class="footer__job--item head">Лица.Работа</li>
+            <li class="footer__job--item"><a href="#">Рекрутинг</a></li>
+            <li class="footer__job--item"><a href="#">Конструктор подбора</a></li>
+            <li class="footer__job--item"><a href="#">Аналитика подбора</a></li>
+        </ul>
+
+        <ul class="footer__portal">
+            <li class="footer__portal--item head" >О портале</li>
+            <li class="footer__portal--item"><a href="#">Поддержка</a></li>
+            <li class="footer__portal--item"><a href="#">Обновления</a></li>
+            <li class="footer__portal--item"><a href="#">Контакты</a></li>
+        </ul>
+
+        <footer>
+            <h5 class="recvisite"><a href="#">Реквизиты</a> | <a href="#">Правовая информация</a></h5>
+            <h5 class="company">ООО "ЛИЦА"</h5>
+        </footer>
+    </section>
+
+
+        <script type="module" src="./js/profileMain.js"></script>
+</body>
+</html>

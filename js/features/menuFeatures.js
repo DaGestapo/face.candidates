@@ -12,7 +12,6 @@ let listLinks = {
 }
 
 export function popUpLink() {
-    let check = true;
     showFullList();
     
 }

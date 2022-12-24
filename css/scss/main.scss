@@ -1,6 +1,7 @@
 @import 'config', 'variables';
 @import 'header', 'popupmenu', 'direction', 'footer', 'recomendation';
 @import 'people', 'follow', 'popUpElements';
+@import 'profile';
 
 body {
     display: flex;
@@ -31,6 +32,7 @@ a {
 section {
     position: relative;
     padding: 1rem;
+    width: 90%;
 }
 
 .show {
@@ -41,4 +43,12 @@ section {
 h2 {
     font-weight: 400;
     color: color(text);
+}
+
+button {
+    font-size: 18px;
+    padding: 1rem;
+    border-radius: 2rem;
+    border: 1px solid transparent;
+    cursor: pointer;
 }

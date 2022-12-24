@@ -1,3 +1,4 @@
+import * as utiles from './utiles.js';
 import {popUpLink, showLinks} from './features/menuFeatures.js';
 
 const menu = document.querySelectorAll('.sticky__header--menu');
@@ -6,6 +7,8 @@ const body = document.querySelector('body');
 
 popUpLink();
 showLinks();
+
+let closeMenu = false;
 
 export function showPopUpMenu() {
 
@@ -40,4 +43,32 @@ export function hideHeader(bool) {
         header.style.visibility = 'visible';
         body.style.background = '#fff';
     }
+}
+
+
+openAndCloseMenu().then( () => {
+    let closePopUp = document.querySelectorAll('section');
+    closePopUp.forEach( (item) => {
+
+        item.addEventListener('click', () => {
+            let popUps = document.querySelectorAll('.popUpBlock');
+            if(closeMenu) {
+                utiles.delDiv(popUps, 'body');
+                
+                closeMenu = showPopUpMenu();
+            }
+        });
+    });
+});
+
+
+export async function openAndCloseMenu() {
+    menu.forEach( (item, index) => {
+        item.addEventListener('click', () => {
+            showPopUpMenu();
+            
+            if( index == 0 ) closeMenu = true;
+            else closeMenu = false;         
+        });
+    });
 }

@@ -14,18 +14,14 @@ import { elementsFollow, elemetsEnters,
     
 // HTML elements    
 const menu = document.querySelectorAll('.sticky__header--menu');
-const header = document.querySelector('.sticky__header');
 const regBtn = document.querySelector('.popUpMenu__reg--btn');
-const body = document.querySelector('body');
 
 // Exit butonn for popUp elements
 let exitBtn = '.popUpBlock__exit__block';
-let closeMenu = false;
 
 
 //Main function
 (() => {
-
     //Sliders
     slider();
     peopelSlider();
@@ -35,43 +31,29 @@ let closeMenu = false;
         popUpNotFromMenu(elementsFollow.createElm, 'body', '.popUp__Follow--btn', '.popUp__Follow', '.popUp__Follow');
     });
 
-    // Close All popUps elements by typing on other HTML elements
-    openAndCloseMenu().then( () => {
-        let closePopUp = document.querySelectorAll('section');
-        closePopUp.forEach( (item) => {
-
-            item.addEventListener('click', () => {
-                let popUps = document.querySelectorAll('.popUpBlock');
-                if(closeMenu) {
-                    utiles.delDiv(popUps, 'body');
-                    
-                    closeMenu = showPopUpMenu();
-                }
-            });
-        });
-    });
-
 
     //Registration button, open reg popUp
     regBtn.addEventListener('click', () => {
         showPopUpMenu();
         hideHeader(true);
-        let hiddenDiv = [];
-        let prevElm = addToArray(elementsRegistration.divName.split(' ')[0], hiddenDiv);
         
-        showPopUpMenu();
-        openRegistrationWayPopUps(prevElm, hiddenDiv);
+        let hiddenDiv = new Set();
+        popUps(elementsRegistration.createElm);
+        
+        let regWayArr = ['.registration', '.registration__compl', '.subscription'];
+        let pairsOfObjectsRegWay = [[elementCompleteReg, elementsRegistration], [elementSubcription, elementCompleteReg]];
+        loopThroughtPopup(regWayArr, pairsOfObjectsRegWay, hiddenDiv);
     });
+
 
     // Open enter popUp div
     elemetsEnters.openBtn.addEventListener( 'click', () => {
 
-        // "Forgot Password" way popUps
         openEnterPopUp().then( () => {
             let forgPasswordWayBtn = document.querySelector('.enter__forgot');
-        
             let hiddenDiv = new Set();
 
+            // "Forgot Password" way popUps
             forgPasswordWayBtn.addEventListener('click', () => {
                     
                 let prevElm = addPopUpToHTML(elemetsEnters, hiddenDiv);
@@ -81,7 +63,6 @@ let closeMenu = false;
                 let pairsOfObjectsForgWAY = [[elementsThanks, elementsForgotPassword]];
                 loopThroughtPopup(forgPasswordArr, pairsOfObjectsForgWAY, hiddenDiv);
                   
-              
             });
             
             // Registration way popUp
@@ -93,24 +74,9 @@ let closeMenu = false;
           
         }); 
 
-
     });
-    
-    // Open menu
 
 })();
-
-
-async function openAndCloseMenu() {
-    menu.forEach( (item, index) => {
-        item.addEventListener('click', () => {
-            showPopUpMenu();
-
-            if( index == 0 ) closeMenu = true;
-            else closeMenu = false;
-        });
-    });
- }
 
 
 async function loopThroughtPopup(arr, arrObj, hiddenDiv) {
@@ -122,8 +88,7 @@ async function loopThroughtPopup(arr, arrObj, hiddenDiv) {
         let promise = new Promise( (resolve, reject) => {
             btn.addEventListener('click', () => {
                 try {
-                    console.log('GG');
-                     prevElm = addPopUpToHTML(arrObj[i][1], hiddenDiv);
+                    prevElm = addPopUpToHTML(arrObj[i][1], hiddenDiv);
                     let saveStr = `.${arrObj[i][0].divName.split(' ')[0]}`;
                     let addStr = `.${arrObj[i][1].divName.split(' ')[0]}`;
                     popUps(arrObj[i][0].createElm, null, null, addStr, saveStr);
@@ -133,7 +98,8 @@ async function loopThroughtPopup(arr, arrObj, hiddenDiv) {
                     reject( new Error() );
                  }
             });
-        }).catch( () => {
+        })
+        .catch( () => {
              prevElm = addToArray(arr[i], hiddenDiv);
                 
              showPopUpMenu();
@@ -152,7 +118,6 @@ function addPopUpToHTML(objToSave, arr) {
     utiles.hidePrevPopUp(result);
 
     return result;
-  
 }
 
 
@@ -161,7 +126,6 @@ function addPopUpToHTML(objToSave, arr) {
 function addToArray(elmClass, arr) {
     if(elmClass.includes('.')) {
         arr.add(elmClass);
-
         return elmClass;
     } 
 
