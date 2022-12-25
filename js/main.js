@@ -10,7 +10,7 @@ import { popUps, popUpNotFromMenu } from './PopupElements.js';
 // Object PopUps
 import { elementsFollow, elemetsEnters, 
     elementsForgotPassword, elementsThanks, elementsRegistration, 
-    elementCompleteReg, elementSubcription } from './objectsDiv.js';
+    elementCompleteReg, elementSubcription } from './objects/objectsDivMain.js';
     
 // HTML elements    
 const menu = document.querySelectorAll('.sticky__header--menu');

@@ -151,3 +151,35 @@
         }
     }
 }
+
+.arrange {
+    h3 {
+        display: flex;
+        gap: 1rem;
+        width: 100%;
+        line-height: 1.8rem;
+
+        padding: 0 1.5rem;
+    }
+}
+
+.activate {
+
+    form {
+        display: grid;
+        grid-template-columns: 10% 90%;
+        gap: 1rem;
+
+        label {
+            font-size: 20px;
+
+            span {
+                font-size: 24px;
+            }
+        }
+    }
+
+    button {
+        width: 80%;
+    }
+}

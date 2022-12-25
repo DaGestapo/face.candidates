@@ -18,7 +18,6 @@ export async function popUps(func, backg, NameCloseBtn, prevDiv, div) {
     let promise = new Promise( resolve => {
         closeBtn.addEventListener('click', () => {
             utiles.showPrevPopUp(prevDiv);
-            console.log('hi');
 
             closePopup(null, div);
             let popUpElms = document.querySelectorAll('.popUpBlock');

@@ -1,3 +1,6 @@
+import {createLogoH1} from './objUtiles.js';
+
+
 export let elementsFollow = {
     openBtn: document.querySelector('.follow__section--btn'),
     classCloseBtn: 'popUp__Follow--btn', 
@@ -221,15 +224,5 @@ export let elementSubcription = {
 
         return div;
     }
-}
-
-
-
-
-function createLogoH1() {
-    let h1 = document.createElement('h1');
-    h1.innerHTML = `ЛИЦА <span><img src="./img/logo.png" alt=""></span> Кандидаты`;
-
-    return h1;
 }
 
