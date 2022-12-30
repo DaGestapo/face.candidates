@@ -31,7 +31,6 @@ export let elementsFollow = {
 }
 
 export let elemetsEnters = {
-    openBtn: document.querySelector('.popUpMenu__open--btn'),
     enterBtn: 'enter__enter--btn',
     regBtn: 'enter--btn',
     divName: 'enter popUpBlock',
@@ -66,10 +65,6 @@ export let elemetsEnters = {
         enterBtn.setAttribute('class', elemetsEnters.enterBtn);
         enterBtn.innerHTML = `Войти`;
 
-        let a = document.createElement('a');
-        a.href = './profile.html';
-        a.append(enterBtn);
-
         let registrationBtn = document.createElement('button');
         registrationBtn.setAttribute('class', elemetsEnters.regBtn);
         registrationBtn.innerHTML = 'Зарегистрироваться';
@@ -78,7 +73,7 @@ export let elemetsEnters = {
         img.setAttribute('src', './img/logo.png');
 
         h2.append(textH2);
-        div.append(exitBtn, h1, h2, emailInpt, passwordInpt, tip, a, registrationBtn );
+        div.append(exitBtn, h1, h2, emailInpt, passwordInpt, tip, enterBtn, registrationBtn );
 
         return div;
     }

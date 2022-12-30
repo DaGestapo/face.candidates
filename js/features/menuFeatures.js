@@ -1,8 +1,3 @@
-const showMore = document.querySelector('.show--more');
-const mergeList = document.querySelector('.popUpMenu__mergeList');
-
-const listItems = document.querySelectorAll('.head-item');
-
 
 let listLinks = {
     markets: ['Интернет-маркетинг', 'Контент-маркетинг', 'Первофманс-маркетинг', 'PR'],
@@ -11,13 +6,13 @@ let listLinks = {
     manage: []
 }
 
-export function popUpLink() {
-    showFullList();
+export function popUpLink( showMore, mergeList) {
+    showFullList(showMore, mergeList);
     
 }
 
 
-export function showLinks() {
+export function showLinks(listItems) {
     let subLink; 
 
     let checkForMainList = true;
@@ -126,7 +121,7 @@ function deleteItemInsideList(className) {
     document.querySelector(name).innerHTML = '';
 }
 
-function showFullList() {
+function showFullList(showMore, mergeList) {
     let check = true;
 
     showMore.addEventListener('click', () => {

@@ -1,17 +1,34 @@
 import * as utiles from './utiles.js';
-import {popUpLink, showLinks} from './features/menuFeatures.js';
+import { popUpMenuNotAuto, popUpMenuNotConf } from './objects/objPopupMenu.js';
 
-const menu = document.querySelectorAll('.sticky__header--menu');
-const popUpMenu = document.querySelector('.popUpMenu');
+const menu = document.querySelector('.sticky__header--menu');
+let popUpMenu;
 const body = document.querySelector('body');
 
-popUpLink();
-showLinks();
 
 let closeMenu = false;
+let checkEnter = false;
+
+
+export function createPopUpMenu(bool){
+    let menuPop;
+
+    if(!bool) {
+        menuPop = popUpMenuNotAuto.createElm();
+        body.append( menuPop );
+
+        checkEnter = true;
+    } else {
+        menuPop = popUpMenuNotConf.createElm();
+        body.append( menuPop );
+
+        checkEnter = false;
+    }
+
+    popUpMenu = document.querySelector('.popUpMenu');
+}
 
 export function showPopUpMenu() {
-
     let result = popUpMenu.classList.toggle('show');
 
      if( Array.from(popUpMenu.classList).includes('show') ) {
@@ -63,12 +80,29 @@ openAndCloseMenu().then( () => {
 
 
 export async function openAndCloseMenu() {
-    menu.forEach( (item, index) => {
-        item.addEventListener('click', () => {
+    let promise = new Promise( resolve => {
+        
+        menu.addEventListener('click', () => {
             showPopUpMenu();
+        
+            closeMenu = true; 
             
-            if( index == 0 ) closeMenu = true;
-            else closeMenu = false;         
+            resolve();
+        
+        
         });
+    });
+
+    await promise;
+    closePopUpBtnEvent();
+
+}
+
+export function closePopUpBtnEvent() {
+    let closeBtn = document.querySelector('.popUpMenu--menu');
+    closeBtn.addEventListener('click', () => {
+            showPopUpMenu();
+
+            closeMenu = false;
     });
 }
