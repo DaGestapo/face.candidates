@@ -41,6 +41,8 @@ export function popUpNotFromMenu(func, backg, NameCloseBtn, prevDiv, div) {
     body.append( func() );
     
     let closeBtn = document.querySelectorAll(NameCloseBtn);
+    if(NameCloseBtn == null) return;
+
     closeBtn = closeBtn[closeBtn.length - 1];
 
     closeBtn.addEventListener('click', () => {
@@ -63,12 +65,17 @@ function changeBgColor( bgClass, color ) {
     }
 }
 
-function closePopup(body, divName) {
+export function closePopup(body, divName) {
     let div = document.querySelector(divName);
     div.remove();
 
     if( body != null ) {
-        body.style.backgroundColor = '#fff'; 
+        try {
+            body.style.backgroundColor = '#fff';
+        } catch {
+            document.querySelector(body).style.backgroundColor = '#fff';
+        }
+        
     } 
 }
 

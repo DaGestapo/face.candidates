@@ -95,3 +95,33 @@ export let elementsCounts = {
         return div;
     }
 }
+
+export let elementsCanceled = {
+    divName: 'cancel popUpBlock otter',
+    closeBtn: 'cancel--btn',
+    buttonCancel: 'cancel__cancel--btn',
+
+    createElm() {
+        let div = document.createElement('div');
+        div.className = elementsCanceled.divName;
+
+
+        let h1 = createLogoH1();
+
+        let h2 = document.createElement('h2');
+        h2.innerHTML = `Если вы отмените подписку, то она будет действовать до оплаченного срока,
+        а затем вы потеряет доступ к базе проверенных кандидатов`;
+
+        let buttonBack = document.createElement('button');
+        buttonBack.className = elementsCanceled.closeBtn;
+        buttonBack.innerHTML = 'Закрыть';
+
+        let buttonCancel = document.createElement('button');
+        buttonCancel.className = elementsCanceled.buttonCancel;
+        buttonCancel.innerHTML = 'Все равно отменить';
+
+        div.append(h1, h2, buttonBack, buttonCancel);
+
+        return div;
+    }
+}

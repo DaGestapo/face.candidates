@@ -811,6 +811,11 @@
   border: 1px solid #F1DF6F;
   background: #fff;
 }
+.user pre {
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 2rem;
+}
 .user p {
   color: #F50F22;
   font-size: 20px;
