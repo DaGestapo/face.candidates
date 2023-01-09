@@ -37,7 +37,7 @@ export let popUpMenuNotAuto = {
 
         let ul = document.createElement('ul');
         ul.className = `${popUpMenuNotAuto.divName}__list`;
-        ul.innerHTML = `<li><a href="#">Найти кандидата</a></li>
+        ul.innerHTML = `<li><a href="./search.html">Найти кандидата</a></li>
         <li><a href="#">Попасть в базу</a></li>
         <li><a href="#">О сервисе</a></li>`;
 
@@ -84,7 +84,7 @@ export let popUpMenuNotConf = {
 
         let ul = document.createElement('ul');
         ul.className = `${popUpMenuNotAuto.divName}__list`;
-        ul.innerHTML = `<li><a href="#">Найти кандидата</a></li>
+        ul.innerHTML = `<li><a href="./search.html">Найти кандидата</a></li>
         <li><a href="#">Попасть в базу</a></li>
         <li><a href="#">О сервисе</a></li>`;
 
