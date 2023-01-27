@@ -1,0 +1,150 @@
+.title {
+    position: relative;
+    width: 100%;
+    margin-left: 4rem;
+    font-size: 20px;
+    margin-top: 7rem;
+}
+
+.person {
+
+    &__action {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .history {
+        margin-top: 2rem;
+        display: none;
+
+        div {
+
+            h1 {
+                color:#000;
+            }
+
+            h2 {
+                color: #000;
+            }
+        }
+    }
+
+    &__info {
+        display: grid;
+        grid-template-columns: 20% 80%;
+        column-gap: 2rem;
+        row-gap: 1rem;
+        margin-top: 2rem;
+
+
+        img {
+            width: 80px;
+            grid-row: 1 / span 2;
+        }
+    }
+
+    &__contact {
+        display: flex;
+        flex-direction: column;
+        margin-top: 2rem;
+        gap: 1rem;
+
+        h2 {
+            font-size: 18px;
+
+            span {
+                color: color(text-job);
+                font-size: 12px;
+            }
+        }
+
+        h3 {
+            font-size: 18px;
+        }
+
+        &__form {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            gap: 2rem;
+
+            &--phone {
+                font-size: 18px;
+                border: 1px solid color(icon-input);
+                color: gray;
+                padding: 1rem 1.5rem;
+                border-radius: 1.5rem;
+            }
+
+            a {
+                text-align: center;
+                background-color: color(primary);
+                padding: 1rem 1.5rem;
+                border-radius: 1.5rem;
+                font-size: 18px;
+            }
+        }
+    }
+}
+
+.portfolio {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+
+    div {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+
+        h1 {
+            font-size: 24px;
+        }
+
+        a {
+            font-size: 20px;
+            color: color(select-text);
+        }
+    }
+
+    &__link{
+        width: 100%;
+        text-align: center;
+        border: 1px solid color(primary);
+        padding: 1rem 2rem;
+        border-radius: 2rem;
+        font-size: 18px;
+
+        &:hover {
+            border: 1px solid transparent;
+            background-color: color(primary);
+        }
+    }
+
+    .center-link {
+        background-color: color(primary);
+        border: 1px solid transparent;
+
+        &:hover {
+            border: 1px solid color(primary);
+            background-color: transparent;
+        }
+    }
+}
+
+.more-info {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+
+    button {
+        display: flex;
+        justify-content: space-between;
+        font-size: 22px;
+        text-align: left;
+        padding: 1rem 0rem;
+        background-color: transparent;
+        
+    }
+}
